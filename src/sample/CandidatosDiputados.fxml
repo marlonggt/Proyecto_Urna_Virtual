@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="275.0" layoutY="319.0" mnemonicParsing="false" text="Votar">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="115.0" layoutY="41.0" prefHeight="30.0" prefWidth="300.0" text="Candidatos a Diputados">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="116.0" layoutY="122.0" text="Partido Politico">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="116.0" layoutY="210.0" text="Candidato">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="115.0" layoutY="239.0" prefHeight="26.0" prefWidth="300.0" />
+      <ComboBox layoutX="115.0" layoutY="150.0" prefHeight="26.0" prefWidth="300.0" />
+   </children>
+</AnchorPane>
