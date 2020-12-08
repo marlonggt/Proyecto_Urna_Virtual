@@ -1,49 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="460.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginVotanteController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginVotanteController">
    <children>
-      <AnchorPane prefHeight="93.0" prefWidth="704.0" style="-fx-background-color: #003d66;">
-         <effect>
-            <DropShadow />
-         </effect></AnchorPane>
-      <Label layoutX="290.0" layoutY="114.0" prefHeight="50.0" prefWidth="222.0" text="Urna Virtual" textAlignment="CENTER">
-         <font>
-            <Font name="Arial Bold" size="37.0" />
-         </font>
-      </Label>
-      <Label layoutX="61.0" layoutY="240.0" text="Numero de Identidad">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="identidad" layoutX="262.0" layoutY="238.0" prefHeight="26.0" prefWidth="304.0" />
-      <Button layoutX="303.0" layoutY="327.0" mnemonicParsing="false" onAction="#accion" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #003d66;" text="Aceptar" textFill="WHITE" wrapText="true">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <Hyperlink layoutX="566.0" layoutY="419.0" text="Administrador" underline="true">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Hyperlink>
-      <ImageView fx:id="logoImage" fitHeight="106.0" fitWidth="158.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/tse.png" />
-         </image></ImageView>
-      <Label layoutX="301.0" layoutY="161.0" prefHeight="50.0" prefWidth="200.0" text="Bienvenido" textAlignment="CENTER">
-         <font>
-            <Font name="Arial Bold" size="36.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="-4.0" layoutY="-3.0" prefHeight="410.0" prefWidth="614.0">
+         <children>
+            <Label layoutX="211.0" layoutY="56.0" prefHeight="50.0" prefWidth="222.0" text="Bienvenido!" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="37.0" />
+               </font>
+            </Label>
+            <Label layoutX="55.0" layoutY="178.0" text="Usuario Votante">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </Label>
+            <TextField layoutX="244.0" layoutY="179.0" prefHeight="26.0" prefWidth="304.0" />
+            <Button layoutX="258.0" layoutY="302.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" text="Aceptar" wrapText="true">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="244.0" layoutY="213.0" prefHeight="18.0" prefWidth="304.0" text="Introduzca su numero de identidad correctamente" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="485.0" layoutY="356.0" text="Administrador" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
    </children>
 </AnchorPane>

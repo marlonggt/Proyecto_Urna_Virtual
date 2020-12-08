@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UbicacionVotanteController">
+   <children>
+      <Button layoutX="251.0" layoutY="297.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="98.0" text="Aceptar" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="78.0" layoutY="85.0" prefHeight="32.0" prefWidth="155.0" text="Departamento">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="172.0" prefHeight="27.0" prefWidth="142.0" text="Municipio">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="280.0" layoutY="88.0" prefHeight="26.0" prefWidth="278.0" />
+      <ComboBox layoutX="280.0" layoutY="172.0" prefHeight="26.0" prefWidth="278.0" />
+   </children>
+</AnchorPane>
