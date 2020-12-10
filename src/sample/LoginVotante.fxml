@@ -42,7 +42,7 @@
       </Hyperlink>
       <ImageView fx:id="logoImage" fitHeight="106.0" fitWidth="158.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Imagen/tse.png" />
+            <Image url="@../Imagenes/tse.png" />
          </image></ImageView>
       <Label layoutX="301.0" layoutY="161.0" prefHeight="50.0" prefWidth="200.0" text="Bienvenido" textAlignment="CENTER">
          <font>
