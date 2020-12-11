@@ -4,19 +4,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistroController">
    <children>
-      <AnchorPane prefHeight="83.0" prefWidth="900.0" style="-fx-background-color: #66b3ff;">
+      <AnchorPane prefHeight="118.0" prefWidth="900.0" style="-fx-background-color: #003d66;">
          <children>
-            <Label layoutX="34.0" layoutY="33.0" prefHeight="27.0" prefWidth="312.0" text="Formulario Inscripcion de candidatos">
+            <Label layoutX="34.0" layoutY="42.0" prefHeight="35.0" prefWidth="416.0" text="Formulario Inscripcion de candidatos" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
       <Label layoutX="54.0" layoutY="167.0" prefHeight="38.0" prefWidth="208.0" text="Nombre del candidato">
          <font>
@@ -24,10 +29,10 @@
          </font>
       </Label>
       <TextField layoutX="345.0" layoutY="174.0" prefHeight="25.0" prefWidth="444.0" />
-      <TextField layoutX="346.0" layoutY="219.0" prefHeight="25.0" prefWidth="165.0" />
-      <TextField layoutX="367.0" layoutY="325.0" prefHeight="25.0" prefWidth="107.0" />
-      <TextField layoutX="532.0" layoutY="326.0" prefHeight="25.0" prefWidth="107.0" />
-      <TextField layoutX="682.0" layoutY="325.0" prefHeight="25.0" prefWidth="107.0" />
+      <TextField layoutX="346.0" layoutY="219.0" prefHeight="25.0" prefWidth="86.0" />
+      <TextField layoutX="367.0" layoutY="325.0" prefHeight="25.0" prefWidth="86.0" />
+      <TextField layoutX="515.0" layoutY="326.0" prefHeight="25.0" prefWidth="107.0" />
+      <TextField layoutX="668.0" layoutY="326.0" prefHeight="25.0" prefWidth="107.0" />
       <TextField layoutX="346.0" layoutY="377.0" prefHeight="25.0" prefWidth="444.0" />
       <TextField layoutX="345.0" layoutY="425.0" prefHeight="25.0" prefWidth="444.0" />
       <TextField layoutX="346.0" layoutY="484.0" prefHeight="25.0" prefWidth="444.0" />
@@ -69,11 +74,15 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="132.0" layoutY="618.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="86.0" text="Atras" />
-      <Button layoutX="407.0" layoutY="618.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="86.0" text="Guardar" />
-      <Button layoutX="639.0" layoutY="618.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="86.0" text="Ir a Inicio" />
+      <Button layoutX="407.0" layoutY="612.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: #003d66;" text="Guardar" textFill="WHITE">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Button>
       <Label layoutX="346.0" layoutY="329.0" text="Dia" />
-      <Label layoutX="500.0" layoutY="329.0" text="Mes" />
-      <Label layoutX="653.0" layoutY="330.0" text="Año" />
+      <Label layoutX="482.0" layoutY="329.0" text="Mes" />
+      <Label layoutX="640.0" layoutY="330.0" text="Año" />
    </children>
 </AnchorPane>
