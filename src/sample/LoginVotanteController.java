@@ -1,9 +1,16 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,12 +23,13 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 
-public class LoginVotanteController {
+public class LoginVotanteController implements Initializable {
 
     @FXML
     private ImageView logoImage;
+
     @FXML
-    TextField identidad;
+    Hyperlink adminLink;
 
     public void initialize(URL url, ResourceBundle resourceBundle){
 
@@ -29,66 +37,25 @@ public class LoginVotanteController {
         logoImage.setImage(image);
 
     }
-    public void accion(ActionEvent event){
-        boolean a=true;
-        char digitos[]=identidad.getText().toCharArray();
-        int n=digitos.length;
-        System.out.println(n);
-        if(n!=13){
-            Alert mensaje=new Alert(Alert.AlertType.WARNING);
-            mensaje.setTitle("Informacion");
-            mensaje.setHeaderText("Ingrese un numero de identidad correcto");
-            identidad.setText(" ");
-            mensaje.showAndWait();
-            a=false;
 
-        }
+    public void adminLinkAccion() {
+        generarRegistro();
 
-        else {
-            boolean b=acceso(identidad.getText());
-            if (b){
-                Alert mensaje=new Alert(Alert.AlertType.WARNING);
-                mensaje.setTitle("Informacion");
-                mensaje.setHeaderText("Lo sentimos usted ya voto");
-                mensaje.showAndWait();
-            }
-            else{
-                try {
-                    FileWriter votar=new FileWriter("Votantes",true);
-                    votar.write(identidad.getText()+"\n");
-                    votar.close();
-                    identidad.setText(" ");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
-                mensaje.setTitle("Informacion");
-                mensaje.setHeaderText("Usted puede votar");
-                mensaje.showAndWait();
-                identidad.setText(" ");
-            }
-
-        }
 
     }
-    public boolean acceso(String identidad){
-        boolean r=false;
-        File datos=new File("Votantes");
-        try {
-            Scanner entrada=new Scanner(datos);
-            while(entrada.hasNextLine()){
-                String informacion=entrada.nextLine();
 
-                if (identidad.equals(informacion)){
-                    r=true;
-                }
-            }
-        }
-        catch (FileNotFoundException e) {
+    public void generarRegistro(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("LoginAdministrador.fxml"));
+            Stage regiStage = new Stage();
+            regiStage.setTitle("Opciones del administrador");
+            regiStage.setScene(new Scene(root));
+            regiStage.show();
+
+        } catch (Exception e){
             e.printStackTrace();
+            e.getCause();
         }
-        return r;
     }
 
 }

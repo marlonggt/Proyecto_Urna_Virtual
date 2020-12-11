@@ -20,10 +20,18 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class LoginAdministradorController {
-    @FXML
-    private TextField user;
+
+    @FXML private TextField user;
     @FXML private PasswordField password;
     @FXML private ImageView bandera;
+
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
+        Image image = new Image("/Imagenes/bandera1.jpg");
+        bandera.setImage(image);
+
+    }
+
     public void sesion(){
 
         boolean w=acceso(user.getText(),password.getText());
@@ -81,11 +89,5 @@ public class LoginAdministradorController {
         u.setScene(t);
         u.showAndWait();
     }
-    public void initialize(URL url, ResourceBundle resourceBundle){
 
-        Image image = new Image("/Imagenes/bandera1.jpg");
-        bandera.setImage(image);
-
-
-    }
 }

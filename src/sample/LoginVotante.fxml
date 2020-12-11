@@ -26,7 +26,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="262.0" layoutY="238.0" prefHeight="26.0" prefWidth="304.0" />
+      <TextField fx:id="identidad" layoutX="262.0" layoutY="238.0" prefHeight="26.0" prefWidth="304.0" />
       <Button layoutX="303.0" layoutY="327.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #003d66;" text="Aceptar" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Arial Bold" size="18.0" />
@@ -35,7 +35,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Hyperlink layoutX="566.0" layoutY="419.0" text="Administrador" underline="true">
+      <Hyperlink fx:id="adminLink" layoutX="566.0" layoutY="419.0" onAction="#adminLinkAccion" text="Administrador" underline="true">
          <font>
             <Font size="14.0" />
          </font>
