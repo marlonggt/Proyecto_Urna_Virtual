@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.javafx.embed.swing.SwingEvents;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,21 +36,10 @@ public class LoginAdministradorController {
 
     public void sesion(){
 
+        ArchivoSeguridad();
         boolean w=acceso(user.getText(),password.getText());
-        if(w=true){
-            Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
-            mensaje.setTitle("Informacion");
-            mensaje.setHeaderText("Acceso Concedido");
-            mensaje.setContentText(" Bienvenido "+ user.getText());
-            mensaje.showAndWait();
 
-            try {
-                cargar("Votar.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        else{
+        if(w=!true){
             Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("Informacion");
             mensaje.setHeaderText("Acceso Denegado");
@@ -56,6 +47,16 @@ public class LoginAdministradorController {
             mensaje.showAndWait();
             user.setText("");
             password.setText("");
+
+        }
+        else{
+            Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
+            mensaje.setTitle("Informacion");
+            mensaje.setHeaderText("Acceso Concedido");
+            mensaje.setContentText(" Bienvenido "+ user.getText());
+            mensaje.showAndWait();
+            generarRegistro();
+
         }
     }
     public boolean acceso(String nom, String pass){
@@ -79,15 +80,42 @@ public class LoginAdministradorController {
         }
         return r;
     }
-    public void cargar(String formulario) throws IOException {
-        FXMLLoader frm=new FXMLLoader(getClass().getResource(formulario));
-        Parent root=frm.load();
-        ModuleLayer.Controller controlador=frm.getController();
-        Scene t=new Scene(root);
-        Stage u=new Stage();
-        u.initModality(Modality.APPLICATION_MODAL);
-        u.setScene(t);
-        u.showAndWait();
+
+        public  void  ArchivoSeguridad( ){
+            File login=new File("Seguridad");
+            try{
+                if (!login.exists()){
+                    login.createNewFile();
+                    try {
+                        FileWriter ingresar=new FileWriter("Seguridad");
+                        ingresar.write("admin password");
+                        ingresar.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            catch (IOException e){
+                System.out.println("Error: "+e);
+            }
+        }
+
+        public void generarRegistro(){
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
+                Stage regiStage = new Stage();
+                regiStage.setTitle("Opciones del administrador");
+                regiStage.setScene(new Scene(root));
+                regiStage.show();
+
+            } catch (Exception e){
+                e.printStackTrace();
+                e.getCause();
+            }
     }
+
+
+
+
 
 }

@@ -25,11 +25,9 @@ import java.util.Scanner;
 
 public class LoginVotanteController implements Initializable {
 
-    @FXML
-    private ImageView logoImage;
-
-    @FXML
-    Hyperlink adminLink;
+    @FXML private ImageView logoImage;
+    @FXML private Hyperlink adminLink;
+    @FXML private TextField numIdentidad;
 
     public void initialize(URL url, ResourceBundle resourceBundle){
 
@@ -38,11 +36,69 @@ public class LoginVotanteController implements Initializable {
 
     }
 
+    public void aceptarAccion(ActionEvent event){
+
+        archivos("Votantes");
+        boolean z=id(numIdentidad);
+        if (z=true){
+            System.out.println("Existe");
+        }
+        else{
+            Escribir("Votantes",numIdentidad.getText());
+        }
+    }
+
     public void adminLinkAccion() {
+
         generarRegistro();
 
 
     }
+
+    public boolean id(TextField numIdentidad){
+        boolean r=false;
+        File datos=new File("Votantes");
+        try {
+            Scanner entrada=new Scanner(datos);
+            while(entrada.hasNextLine()){
+                String informacion=entrada.nextLine();
+
+                if (numIdentidad.equals(informacion)){
+                    r=true;
+                }
+            }
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
+
+    public void Escribir(String texto,String id){
+        try {
+            FileWriter archivo=new FileWriter(texto,true);
+            archivo.write(id+"\n");
+            archivo.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void archivos (String texto){
+
+        File archivo=new File(texto);
+        try{
+            boolean a=archivo.createNewFile();
+            if (archivo.exists()){
+                System.out.println("Listo");
+            }
+
+        }
+        catch (IOException e){
+            System.out.println("Error: "+e);
+        }
+    }
+
 
     public void generarRegistro(){
         try {
