@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistroController">
+   <children>
+      <AnchorPane prefHeight="118.0" prefWidth="900.0" style="-fx-background-color: #003d66;">
+         <children>
+            <Label layoutX="34.0" layoutY="42.0" prefHeight="35.0" prefWidth="416.0" text="Formulario Inscripcion de candidatos" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <Label layoutX="44.0" layoutY="154.0" prefHeight="38.0" prefWidth="208.0" text="Nombre del candidato">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="327.0" layoutY="160.0" prefHeight="26.0" prefWidth="444.0" />
+      <TextField layoutX="329.0" layoutY="256.0" prefHeight="25.0" prefWidth="86.0" />
+      <RadioButton layoutX="327.0" layoutY="310.0" mnemonicParsing="false" text="masculino" />
+      <RadioButton layoutX="457.0" layoutY="310.0" mnemonicParsing="false" text="femenino" />
+      <Label layoutX="44.0" layoutY="250.0" prefHeight="38.0" prefWidth="208.0" text="Edad">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="299.0" prefHeight="38.0" prefWidth="208.0" text="Sexo">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="356.0" prefHeight="38.0" prefWidth="208.0" text="Fecha de nacimiento">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="408.0" prefHeight="38.0" prefWidth="208.0" text="Tipo de candidatura">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="456.0" prefHeight="38.0" prefWidth="208.0" text="Nombre del partido Politico">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="567.0" prefHeight="38.0" prefWidth="208.0" text="Municipio">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="514.0" prefHeight="38.0" prefWidth="208.0" text="Departamento">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="400.0" layoutY="638.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: #003d66;" text="Guardar" textFill="WHITE">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Button>
+      <Label layoutX="327.0" layoutY="366.0" text="Dia" />
+      <Label layoutX="472.0" layoutY="366.0" text="Mes" />
+      <Label layoutX="663.0" layoutY="366.0" text="Año" />
+      <ComboBox layoutX="327.0" layoutY="414.0" prefHeight="26.0" prefWidth="444.0" />
+      <ComboBox layoutX="327.0" layoutY="572.0" prefHeight="26.0" prefWidth="444.0" />
+      <ComboBox layoutX="327.0" layoutY="519.0" prefHeight="26.0" prefWidth="444.0" />
+      <ComboBox layoutX="327.0" layoutY="462.0" prefHeight="26.0" prefWidth="444.0" />
+      <ComboBox layoutX="353.0" layoutY="361.0" prefHeight="26.0" prefWidth="75.0" />
+      <ComboBox layoutX="503.0" layoutY="362.0" prefHeight="26.0" prefWidth="131.0" />
+      <ComboBox layoutX="692.0" layoutY="361.0" prefHeight="26.0" prefWidth="75.0" />
+      <Label layoutX="44.0" layoutY="201.0" prefHeight="38.0" prefWidth="208.0" text="Identidad">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="327.0" layoutY="207.0" prefHeight="25.0" prefWidth="444.0" />
+   </children>
+</AnchorPane>
