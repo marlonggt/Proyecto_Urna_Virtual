@@ -4,29 +4,33 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CandidatosPresidentesController">
    <children>
-      <Button layoutX="297.0" layoutY="522.0" mnemonicParsing="false" text="Votar y Finalizar">
+      <Button layoutX="281.0" layoutY="426.0" mnemonicParsing="false" onAction="#regresarLoginVotante" text="Votar y Finalizar">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="219.0" layoutY="32.0" prefHeight="30.0" prefWidth="327.0" text="Candidatos Presidenciales">
+      <Label layoutX="76.0" layoutY="229.0" prefHeight="30.0" prefWidth="186.0" text="Partido Politico">
          <font>
             <Font name="Arial Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="169.0" layoutY="170.0" prefHeight="30.0" prefWidth="327.0" text="Partido Politico">
+      <Label layoutX="76.0" layoutY="318.0" prefHeight="30.0" prefWidth="155.0" text="Candidatos">
          <font>
             <Font name="Arial Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="169.0" layoutY="300.0" prefHeight="30.0" prefWidth="327.0" text="Candidatos">
-         <font>
-            <Font name="Arial Bold" size="25.0" />
-         </font>
-      </Label>
-      <ComboBox layoutX="169.0" layoutY="218.0" prefHeight="26.0" prefWidth="290.0" />
-      <ComboBox layoutX="169.0" layoutY="349.0" prefHeight="26.0" prefWidth="290.0" />
+      <ComboBox layoutX="333.0" layoutY="231.0" prefHeight="26.0" prefWidth="290.0" />
+      <ComboBox layoutX="333.0" layoutY="320.0" prefHeight="26.0" prefWidth="290.0" />
+      <AnchorPane layoutX="-3.0" layoutY="-4.0" prefHeight="124.0" prefWidth="704.0" style="-fx-background-color: #003d66;">
+         <children>
+            <Label layoutX="112.0" layoutY="47.0" prefHeight="30.0" prefWidth="479.0" text="Seleccion de Candidatos Presidenciales" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

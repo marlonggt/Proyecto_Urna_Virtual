@@ -26,7 +26,6 @@ public class LoginAdministradorController {
     @FXML private ImageView bandera;
 
     public void initialize(URL url, ResourceBundle resourceBundle){
-
         Image image = new Image("/Imagenes/bandera1.jpg");
         bandera.setImage(image);
     }
@@ -53,7 +52,6 @@ public class LoginAdministradorController {
             mensaje.showAndWait();
             generarRegistro();
         }
-
     }
 
     //validando acceso del administrador
@@ -100,21 +98,14 @@ public class LoginAdministradorController {
 
         public void generarRegistro(){
             try {
-
                 Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
                 Stage regiStage = new Stage();
                 regiStage.setTitle("Opciones del administrador");
                 regiStage.setScene(new Scene(root));
                 regiStage.show();
-
             } catch (Exception e){
                 e.printStackTrace();
                 e.getCause();
             }
     }
-
-
-
-
-
 }

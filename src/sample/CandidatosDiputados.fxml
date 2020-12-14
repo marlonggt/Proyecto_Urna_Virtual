@@ -4,29 +4,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CandidatosDiputadosController">
    <children>
-      <Button layoutX="275.0" layoutY="319.0" mnemonicParsing="false" text="Votar">
+      <Button layoutX="321.0" layoutY="400.0" mnemonicParsing="false" onAction="#generarSelecPresidentes" style="-fx-background-color: #003d66;" text="Votar" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="115.0" layoutY="41.0" prefHeight="30.0" prefWidth="300.0" text="Candidatos a Diputados">
-         <font>
-            <Font name="Arial Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="116.0" layoutY="122.0" text="Partido Politico">
+      <Label layoutX="87.0" layoutY="205.0" text="Partido Politico">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="116.0" layoutY="210.0" text="Candidato">
+      <Label layoutX="87.0" layoutY="288.0" text="Candidato">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Label>
-      <ComboBox layoutX="115.0" layoutY="239.0" prefHeight="26.0" prefWidth="300.0" />
-      <ComboBox layoutX="115.0" layoutY="150.0" prefHeight="26.0" prefWidth="300.0" />
+      <ComboBox layoutX="321.0" layoutY="288.0" prefHeight="26.0" prefWidth="282.0" />
+      <ComboBox fx:id="partidos" layoutX="321.0" layoutY="205.0" prefHeight="26.0" prefWidth="282.0" />
+      <AnchorPane prefHeight="123.0" prefWidth="699.0" style="-fx-background-color: #003d66;">
+         <children>
+            <Label layoutX="88.0" layoutY="54.0" prefHeight="32.0" prefWidth="524.0" text="Seleccion de Candidatos a Diputados" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="27.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

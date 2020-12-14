@@ -35,7 +35,6 @@ public class LoginVotanteController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle){
         Image image = new Image("/Imagenes/tse.png");
         logoImage.setImage(image);
-        archivos("Votantes");
     }
 
     public void accion2(){
@@ -71,7 +70,6 @@ public class LoginVotanteController implements Initializable {
 
                 generarLocalidad();
             }
-
         }
 
     }
@@ -94,22 +92,19 @@ public class LoginVotanteController implements Initializable {
         return r;
     }
 
-    public void archivos (String texto){
-
+    //funcion para la creacion de archivos de texto
+    public void archivos(String texto){
         File archivo=new File(texto);
         try{
             boolean a=archivo.createNewFile();
             if (archivo.exists()){
                 System.out.println("Listo");
             }
-
         }
         catch (IOException e){
             System.out.println("Error: "+e);
         }
     }
-
-
 
     //funcion para generar la ventana de registro de candidatos
     public void generarRegistro(){
@@ -119,27 +114,24 @@ public class LoginVotanteController implements Initializable {
             regiStage.setTitle("Opciones del administrador");
             regiStage.setScene(new Scene(root));
             regiStage.show();
-
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();
         }
     }
 
+    //funcion para generar la ventana de localidad
     public void generarLocalidad(){
         try {
-
             Parent root = FXMLLoader.load(getClass().getResource("UbicacionVotante.fxml"));
             Stage regiStage = new Stage();
             regiStage.setTitle("Localizacion del Votante");
             regiStage.setScene(new Scene(root));
             regiStage.show();
-
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();
         }
     }
-
 }
 
