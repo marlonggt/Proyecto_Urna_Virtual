@@ -28,7 +28,7 @@ public class LoginVotanteController implements Initializable {
     //atributos de la clase
     @FXML private ImageView logoImage;
     @FXML private Hyperlink adminLink;
-    @FXML private TextField numidentidad;
+    @FXML private TextField identidad;
     @FXML private Button aceptar;
 
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -37,21 +37,48 @@ public class LoginVotanteController implements Initializable {
         archivos("Votantes");
     }
 
-    public void aceptarAccion(ActionEvent event){
-
+    public void accion2(ActionEvent event){
         archivos("Votantes");
-        boolean z=id(numidentidad);
-        if (z=true){
-            System.out.println("Existe");
+        char digitos[]=identidad.getText().toCharArray();
+        int n=digitos.length;
+        System.out.println(n);
+        if(n!=13){
+            Alert mensaje=new Alert(Alert.AlertType.WARNING);
+            mensaje.setTitle("Informacion");
+            mensaje.setHeaderText("Ingrese un numero de identidad correcto");
+            identidad.setText("");
+            mensaje.showAndWait();
         }
-        else{
-            Escribir("Votantes",numidentidad.getText());
+        else {
+            boolean b=acceso(identidad.getText());
+            if (b){
+                Alert mensaje=new Alert(Alert.AlertType.WARNING);
+                mensaje.setTitle("Informacion");
+                mensaje.setHeaderText("Lo sentimos usted ya voto");
+                mensaje.showAndWait();
+                identidad.setText("");
+            }
+            else{
+                try {
+                    FileWriter votar=new FileWriter("Votantes",true);
+                    votar.write(identidad.getText()+"\n");
+                    votar.close();
+                    identidad.setText("");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
+                mensaje.setTitle("Informacion");
+                mensaje.setHeaderText("Usted puede votar");
+                mensaje.showAndWait();
+                identidad.setText("");
+            }
+
         }
-   }
 
-
-
-   public boolean id(TextField numidentidad){
+    }
+    public boolean acceso(String identidad){
         boolean r=false;
         File datos=new File("Votantes");
         try {
@@ -59,7 +86,7 @@ public class LoginVotanteController implements Initializable {
             while(entrada.hasNextLine()){
                 String informacion=entrada.nextLine();
 
-                if (numidentidad.equals(informacion)){
+                if (identidad.equals(informacion)){
                     r=true;
                 }
             }
@@ -68,17 +95,6 @@ public class LoginVotanteController implements Initializable {
             e.printStackTrace();
         }
         return r;
-    }
-
-
-    public void Escribir(String texto,String id){
-        try {
-            FileWriter archivo=new FileWriter(texto,true);
-            archivo.write(id+"\n");
-            archivo.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void archivos (String texto){
@@ -112,72 +128,6 @@ public class LoginVotanteController implements Initializable {
             e.getCause();
         }
     }
-
-
-    @FXML public void verificar(ActionEvent event){
-        char digitos[]=numidentidad.getText().toCharArray();
-        int n=digitos.length;
-        System.out.println(n);
-        if(n!=13){
-            Alert mensaje=new Alert(Alert.AlertType.WARNING);
-            mensaje.setTitle("Informacion");
-            mensaje.setHeaderText("Ingrese un numero de identidad correcto");
-            numidentidad.setText("");
-            mensaje.showAndWait();
-        }
-        else {
-            boolean b=acceso(numidentidad.getText());
-            if (b){
-                Alert mensaje=new Alert(Alert.AlertType.WARNING);
-                mensaje.setTitle("Informacion");
-                mensaje.setHeaderText("Lo sentimos usted ya voto");
-                mensaje.showAndWait();
-                numidentidad.setText(" ");
-            }
-            else{
-                try {
-                    FileWriter votar=new FileWriter("Votantes",true);
-                    votar.write(numidentidad.getText()+"\n");
-                    votar.close();
-                    numidentidad.setText(" ");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
-                mensaje.setTitle("Informacion");
-                mensaje.setHeaderText("Usted puede votar");
-                mensaje.showAndWait();
-                numidentidad.setText(" ");
-            }
-
-        }
-
-    }
-
-
-
-    //funcion para accesar a los numeros de identidad; esta funcion sera llamada en la funcion verificar
-    public boolean acceso(String identidad){
-        boolean r=false;
-        File datos=new File("Votantes");
-        try {
-            Scanner entrada=new Scanner(datos);
-            while(entrada.hasNextLine()){
-                String informacion=entrada.nextLine();
-
-                if (identidad.equals(informacion)){
-                    r=true;
-                }
-            }
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return r;
-    }
-
-
 
 }
 

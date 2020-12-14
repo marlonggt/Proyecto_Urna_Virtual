@@ -6,11 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-<<<<<<< HEAD
-      <Button layoutX="265.0" layoutY="309.0" mnemonicParsing="false" text="Votar">
-=======
       <Button layoutX="268.0" layoutY="327.0" mnemonicParsing="false" text="Votar">
->>>>>>> origin/master
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -25,21 +21,12 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Label>
-<<<<<<< HEAD
-      <Label layoutX="106.0" layoutY="200.0" text="Candidato">
-=======
       <Label layoutX="106.0" layoutY="214.0" text="Candidato">
->>>>>>> origin/master
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Label>
-<<<<<<< HEAD
-      <ComboBox layoutX="105.0" layoutY="229.0" prefHeight="26.0" prefWidth="300.0" />
-      <ComboBox layoutX="105.0" layoutY="140.0" prefHeight="26.0" prefWidth="300.0" />
-=======
       <ChoiceBox fx:id="partidos" layoutX="105.0" layoutY="145.0" prefWidth="150.0" />
       <ChoiceBox layoutX="105.0" layoutY="247.0" prefWidth="150.0" />
->>>>>>> origin/master
    </children>
 </AnchorPane>
