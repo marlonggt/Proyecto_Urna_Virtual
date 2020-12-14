@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="460.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginVotanteController">
+<AnchorPane prefHeight="460.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginVotanteController">
    <children>
       <AnchorPane prefHeight="93.0" prefWidth="704.0" style="-fx-background-color: #003d66;">
          <effect>
             <DropShadow />
          </effect></AnchorPane>
-      <Label layoutX="290.0" layoutY="114.0" prefHeight="50.0" prefWidth="222.0" text="Urna Virtual" textAlignment="CENTER">
+      <Label layoutX="241.0" layoutY="114.0" prefHeight="50.0" prefWidth="222.0" text="Urna Virtual" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="37.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="240.0" text="Numero de Identidad">
+      <Label layoutX="79.0" layoutY="257.0" text="Numero de Identidad">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="262.0" layoutY="238.0" prefHeight="26.0" prefWidth="304.0" />
-      <Button layoutX="303.0" layoutY="327.0" mnemonicParsing="false" onAction="#aceptarAccion" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #003d66;" text="Aceptar" textFill="WHITE" wrapText="true">
+      <TextField fx:id="numIdentidad" layoutX="280.0" layoutY="255.0" prefHeight="26.0" prefWidth="304.0" />
+      <Button fx:id="aceptar" layoutX="303.0" layoutY="340.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #003d66;" text="Aceptar" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -35,7 +31,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Hyperlink fx:id="adminLink" layoutX="566.0" layoutY="419.0" onAction="#adminLinkAccion" text="Administrador" underline="true">
+      <Hyperlink fx:id="adminLink" layoutX="584.0" layoutY="418.0" onAction="#generarRegistro" text="Administrador" underline="true">
          <font>
             <Font size="14.0" />
          </font>
@@ -44,9 +40,9 @@
          <image>
             <Image url="@../Imagenes/tse.png" />
          </image></ImageView>
-      <Label layoutX="301.0" layoutY="161.0" prefHeight="50.0" prefWidth="200.0" text="Bienvenido" textAlignment="CENTER">
+      <Label layoutX="262.0" layoutY="160.0" prefHeight="50.0" prefWidth="208.0" text="Bienvenido!" textAlignment="CENTER">
          <font>
-            <Font name="Arial Bold" size="36.0" />
+            <Font name="Arial Bold" size="30.0" />
          </font>
       </Label>
    </children>
