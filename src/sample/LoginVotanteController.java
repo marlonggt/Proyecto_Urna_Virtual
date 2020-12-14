@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
@@ -37,7 +38,7 @@ public class LoginVotanteController implements Initializable {
         archivos("Votantes");
     }
 
-    public void accion2(ActionEvent event){
+    public void accion2(){
         archivos("Votantes");
         char digitos[]=identidad.getText().toCharArray();
         int n=digitos.length;
@@ -68,11 +69,7 @@ public class LoginVotanteController implements Initializable {
                     e.printStackTrace();
                 }
 
-                Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
-                mensaje.setTitle("Informacion");
-                mensaje.setHeaderText("Usted puede votar");
-                mensaje.showAndWait();
-                identidad.setText("");
+                generarLocalidad();
             }
 
         }
@@ -120,6 +117,21 @@ public class LoginVotanteController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("LoginAdministrador.fxml"));
             Stage regiStage = new Stage();
             regiStage.setTitle("Opciones del administrador");
+            regiStage.setScene(new Scene(root));
+            regiStage.show();
+
+        } catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void generarLocalidad(){
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("UbicacionVotante.fxml"));
+            Stage regiStage = new Stage();
+            regiStage.setTitle("Localizacion del Votante");
             regiStage.setScene(new Scene(root));
             regiStage.show();
 
