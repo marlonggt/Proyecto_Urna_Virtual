@@ -31,7 +31,6 @@ public class LoginAdministradorController {
 
         Image image = new Image("/Imagenes/bandera1.jpg");
         bandera.setImage(image);
-
     }
 
     public void sesion(){
@@ -39,7 +38,7 @@ public class LoginAdministradorController {
         ArchivoSeguridad();
         boolean w=acceso(user.getText(),password.getText());
 
-        if(w=!true){
+        if(w==false){
             Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("Informacion");
             mensaje.setHeaderText("Acceso Denegado");
@@ -47,7 +46,6 @@ public class LoginAdministradorController {
             mensaje.showAndWait();
             user.setText("");
             password.setText("");
-
         }
         else{
             Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
@@ -56,9 +54,11 @@ public class LoginAdministradorController {
             mensaje.setContentText(" Bienvenido "+ user.getText());
             mensaje.showAndWait();
             generarRegistro();
-
         }
+
     }
+
+    //validando acceso del administrador
     public boolean acceso(String nom, String pass){
         boolean r=false;
 
@@ -68,8 +68,7 @@ public class LoginAdministradorController {
             while(entrada.hasNextLine()){
                 String informacion=entrada.nextLine();
                 String d[]=informacion.split(" ");
-                System.out.println(d[0]+"--"+d[1]);
-                System.out.println(informacion);
+                //System.out.println(informacion);
                 if (nom.equals(d[0])&& pass.equals(d[1])){
                     r=true;
                 }
@@ -81,6 +80,7 @@ public class LoginAdministradorController {
         return r;
     }
 
+    //Creando el archivo de seguridad para el admin y el password por defecto
         public  void  ArchivoSeguridad( ){
             File login=new File("Seguridad");
             try{
@@ -102,6 +102,7 @@ public class LoginAdministradorController {
 
         public void generarRegistro(){
             try {
+
                 Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
                 Stage regiStage = new Stage();
                 regiStage.setTitle("Opciones del administrador");
