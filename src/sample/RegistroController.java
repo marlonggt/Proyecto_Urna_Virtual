@@ -50,6 +50,7 @@ public class RegistroController implements Initializable {
         PartidoPolitico.setItems(list2);
         MostrarDepartamentos();
         revision();
+        System.out.println(mun);
     }
 
     public void Agregar(){
