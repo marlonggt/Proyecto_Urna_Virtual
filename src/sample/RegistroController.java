@@ -27,10 +27,10 @@ public class RegistroController implements Initializable {
     @FXML private ComboBox TipoCandidatura;
     @FXML private ComboBox PartidoPolitico;
     @FXML private ComboBox <String>Departamento;
-    @FXML private ComboBox <String>Municipio;
+    @FXML private ComboBox Municipio;
 
-    protected ArrayList<String> mun=new ArrayList<>();
-    protected ArrayList <String>depto=new ArrayList<>();
+    protected ArrayList <String> mun=new ArrayList<>();
+    protected ArrayList <String> depto=new ArrayList<>();
     protected ArrayList <String> Tipos=new ArrayList<>();
     protected ArrayList <String> Partidos=new ArrayList<>();
 
@@ -44,13 +44,12 @@ public class RegistroController implements Initializable {
         TipoCandidatura.setItems(list);
 
         //Lista de partidos politicos
-        Partidos.add("Nacional");
-        Partidos.add("Liberal");
+        Partidos.add("Partido Nacional");
+        Partidos.add("Partido Liberal");
         ObservableList<String> list2= FXCollections.observableArrayList(Partidos);
         PartidoPolitico.setItems(list2);
         MostrarDepartamentos();
         revision();
-        System.out.println(mun);
     }
 
     public void Agregar(){
@@ -66,12 +65,9 @@ public class RegistroController implements Initializable {
             String sexo;
             if (OptMasculino.isSelected()){
                 sexo="Masculino";
-
             }
             else {
-
                 sexo="Femenino";
-
             }
             escritura("Candidatos",identidad,nombre,edad,sexo,Fecha,TipoCandidatura,PartidoPolitico,Departamento,Municipio);
             Alert mensaje=new Alert(Alert.AlertType.INFORMATION);
@@ -79,8 +75,8 @@ public class RegistroController implements Initializable {
             mensaje.setHeaderText("Candidato agregado");
             mensaje.showAndWait();
         }
-
     }
+
     //Verificar llenado;
     public boolean revision(){
         boolean r=false;
@@ -93,6 +89,7 @@ public class RegistroController implements Initializable {
         }
         return r;
     }
+
     //Agregar datos del candidato su respectivo archivo de texto
     public void escritura (String texto, TextField identidad, TextField nombre, TextField edad, String sexo, DatePicker fecha, ComboBox TipoCandidatura,ComboBox Partido,ComboBox departamento, ComboBox municipio ){
         String candidato=identidad.getText()+" "+nombre.getText()+" "+edad.getText()+" años "+sexo+" "+fecha.getValue().toString()+" "+TipoCandidatura.getValue().toString()+" "+Partido.getValue().toString()+" "+departamento.getValue().toString()+" "+municipio.getValue().toString();
@@ -104,6 +101,7 @@ public class RegistroController implements Initializable {
             e.printStackTrace();
         }
     }
+
     //Verificar si existe el archivo de texto
     public  void  archivos (String texto){
 
@@ -114,12 +112,12 @@ public class RegistroController implements Initializable {
                 archivo.createNewFile();
                 System.out.println("Listo");
             }
-
         }
         catch (IOException e){
             System.out.println("Error: "+e);
         }
     }
+
     //Agregar a los arraylist datos de municipios y departamentos
     public void arreglosMunicipios(){
         String texto=Departamento.getValue().toString();
@@ -137,6 +135,7 @@ public class RegistroController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void arreglosDepartamentos(){
         String nombre="Departamentos\\"+"DepartamentosHonduras.txt";
         File datos=new File(nombre);
@@ -151,6 +150,7 @@ public class RegistroController implements Initializable {
             e.printStackTrace();
         }
     }
+
     //Mostrar en combobox las listas
     public void MostrarDepartamentos(){
 
@@ -162,15 +162,12 @@ public class RegistroController implements Initializable {
         d=Departamento.getValue();
         if (d==null){
             System.out.println("MAL");
-
         }
-        else {
+        else{
             Municipio.setDisable(false);
             arreglosMunicipios();
             ObservableList<String> list= FXCollections.observableArrayList(mun);
             Municipio.setItems(list);
         }
-
     }
-
 }
