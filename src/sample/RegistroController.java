@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -26,7 +27,7 @@ public class RegistroController implements Initializable {
     @FXML private DatePicker Fecha;
     @FXML private ComboBox TipoCandidatura;
     @FXML private ComboBox PartidoPolitico;
-    @FXML private ComboBox <String>Departamento;
+    @FXML private ComboBox Departamento;
     @FXML private ComboBox Municipio;
 
     protected ArrayList <String> mun=new ArrayList<>();
@@ -43,12 +44,17 @@ public class RegistroController implements Initializable {
         ObservableList<String> list= FXCollections.observableArrayList(Tipos);
         TipoCandidatura.setItems(list);
 
+
         //Lista de partidos politicos
         Partidos.add("Partido Nacional");
         Partidos.add("Partido Liberal");
         ObservableList<String> list2= FXCollections.observableArrayList(Partidos);
         PartidoPolitico.setItems(list2);
         MostrarDepartamentos();
+
+
+
+
         revision();
     }
 
@@ -120,20 +126,28 @@ public class RegistroController implements Initializable {
 
     //Agregar a los arraylist datos de municipios y departamentos
     public void arreglosMunicipios(){
-        String texto=Departamento.getValue().toString();
-        mun.clear();
-        String nombre="Departamentos\\"+texto+".txt";
+
+         mun.clear();
+        String nombre="Departamentos\\"+Departamento.getValue().toString()+".txt";
         File datos=new File(nombre);
         try {
             Scanner entrada=new Scanner(datos);
             while(entrada.hasNextLine()){
                 String informacion=entrada.nextLine();
                 mun.add(informacion);
+                /*String dividir[]=informacion.split("-");
+                if(Departamento.getValue().toString().equals(dividir[0])){
+                    mun.add(dividir[1]);
+                }
+
+                 */
+
             }
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
     public void arreglosDepartamentos(){
@@ -155,19 +169,24 @@ public class RegistroController implements Initializable {
     public void MostrarDepartamentos(){
 
         arreglosDepartamentos();
-        String d=" ";
-        Municipio.setItems(null);
         ObservableList<String> listd= FXCollections.observableArrayList(depto);
         Departamento.setItems(listd);
-        d=Departamento.getValue();
-        if (d==null){
-            System.out.println("MAL");
-        }
-        else{
-            Municipio.setDisable(false);
-            arreglosMunicipios();
-            ObservableList<String> list= FXCollections.observableArrayList(mun);
-            Municipio.setItems(list);
-        }
+        System.out.println("Activado");
+if(Departamento.getValue()==null){
+    System.out.println("Vacio");
+}
+else {
+arreglosMunicipios();
+    ObservableList<String> list3= FXCollections.observableArrayList(mun);
+    Municipio.setItems(list3);
+}
+
+
+
     }
+
+
+
+
+
 }
