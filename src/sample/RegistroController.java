@@ -135,12 +135,6 @@ public class RegistroController implements Initializable {
             while(entrada.hasNextLine()){
                 String informacion=entrada.nextLine();
                 mun.add(informacion);
-                /*String dividir[]=informacion.split("-");
-                if(Departamento.getValue().toString().equals(dividir[0])){
-                    mun.add(dividir[1]);
-                }
-
-                 */
 
             }
         }
@@ -172,14 +166,15 @@ public class RegistroController implements Initializable {
         ObservableList<String> listd= FXCollections.observableArrayList(depto);
         Departamento.setItems(listd);
         System.out.println("Activado");
-if(Departamento.getValue()==null){
-    System.out.println("Vacio");
-}
-else {
-arreglosMunicipios();
-    ObservableList<String> list3= FXCollections.observableArrayList(mun);
-    Municipio.setItems(list3);
-}
+
+        if(Departamento.getValue()==null){
+            System.out.println("Vacio");
+        }
+        else {
+        arreglosMunicipios();
+            ObservableList<String> list3= FXCollections.observableArrayList(mun);
+            Municipio.setItems(list3);
+        }
 
 
 
