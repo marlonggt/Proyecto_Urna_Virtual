@@ -50,15 +50,11 @@ public class RegistroController implements Initializable {
         Partidos.add("Partido Liberal");
         ObservableList<String> list2= FXCollections.observableArrayList(Partidos);
         PartidoPolitico.setItems(list2);
-        MostrarDepartamentos();
-
-
-
-
-        revision();
+        Mostrar(Departamento,Municipio);
     }
 
-    public void Agregar(){
+
+    public void  Agregar(){
         archivos("Candidatos");
         boolean w=revision();
         if(w==true){
@@ -80,6 +76,7 @@ public class RegistroController implements Initializable {
             mensaje.setTitle("Informacion");
             mensaje.setHeaderText("Candidato agregado");
             mensaje.showAndWait();
+
         }
     }
 
@@ -95,7 +92,6 @@ public class RegistroController implements Initializable {
         }
         return r;
     }
-
     //Agregar datos del candidato su respectivo archivo de texto
     public void escritura (String texto, TextField identidad, TextField nombre, TextField edad, String sexo, DatePicker fecha, ComboBox TipoCandidatura,ComboBox Partido,ComboBox departamento, ComboBox municipio ){
         String candidato=identidad.getText()+" "+nombre.getText()+" "+edad.getText()+" años "+sexo+" "+fecha.getValue().toString()+" "+TipoCandidatura.getValue().toString()+" "+Partido.getValue().toString()+" "+departamento.getValue().toString()+" "+municipio.getValue().toString();
@@ -107,7 +103,6 @@ public class RegistroController implements Initializable {
             e.printStackTrace();
         }
     }
-
     //Verificar si existe el archivo de texto
     public  void  archivos (String texto){
 
@@ -123,30 +118,10 @@ public class RegistroController implements Initializable {
             System.out.println("Error: "+e);
         }
     }
-
     //Agregar a los arraylist datos de municipios y departamentos
-    public void arreglosMunicipios(){
 
-         mun.clear();
-        String nombre="Departamentos\\"+Departamento.getValue().toString()+".txt";
-        File datos=new File(nombre);
-        try {
-            Scanner entrada=new Scanner(datos);
-            while(entrada.hasNextLine()){
-                String informacion=entrada.nextLine();
-                mun.add(informacion);
-
-            }
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void arreglosDepartamentos(){
-        String nombre="Departamentos\\"+"DepartamentosHonduras.txt";
-        File datos=new File(nombre);
+    public void Mostrar(ComboBox d,ComboBox m){
+        File datos=new File("Departamentos\\DepartamentosHonduras.txt");
         try {
             Scanner entrada=new Scanner(datos);
             while(entrada.hasNextLine()){
@@ -157,31 +132,31 @@ public class RegistroController implements Initializable {
         catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    //Mostrar en combobox las listas
-    public void MostrarDepartamentos(){
-
-        arreglosDepartamentos();
         ObservableList<String> listd= FXCollections.observableArrayList(depto);
-        Departamento.setItems(listd);
-        System.out.println("Activado");
+        d.setItems(listd);
 
-        if(Departamento.getValue()==null){
+        if (d.getValue() == null) {
             System.out.println("Vacio");
+        } else {
+            //Municipios
+            mun.clear();
+            String nombre="Departamentos\\"+d.getValue().toString()+".txt";
+            File datos2=new File(nombre);
+            try {
+                Scanner entrada=new Scanner(datos2);
+                while(entrada.hasNextLine()){
+                    String informacion=entrada.nextLine();
+                    mun.add(informacion);
+                }
+            }
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            ObservableList<String> list = FXCollections.observableArrayList(mun);
+            m.setItems(list);
         }
-        else {
-        arreglosMunicipios();
-            ObservableList<String> list3= FXCollections.observableArrayList(mun);
-            Municipio.setItems(list3);
-        }
-
-
-
     }
-
-
-
-
-
+    public void DatosCombobox(){
+    Mostrar(Departamento,Municipio);
+}
 }
