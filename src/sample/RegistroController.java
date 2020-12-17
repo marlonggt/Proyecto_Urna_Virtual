@@ -76,6 +76,7 @@ public class RegistroController implements Initializable {
             mensaje.setTitle("Informacion");
             mensaje.setHeaderText("Candidato agregado");
             mensaje.showAndWait();
+            listado(TipoCandidatura,PartidoPolitico,nombre,Departamento,Municipio);
 
         }
     }
@@ -118,8 +119,8 @@ public class RegistroController implements Initializable {
             System.out.println("Error: "+e);
         }
     }
-    //Agregar a los arraylist datos de municipios y departamentos
 
+    //Funcion para mostrar los municipios segun el departamento seleccionado
     public void Mostrar(ComboBox d,ComboBox m){
         File datos=new File("Departamentos\\DepartamentosHonduras.txt");
         try {
@@ -158,5 +159,16 @@ public class RegistroController implements Initializable {
     }
     public void DatosCombobox(){
     Mostrar(Departamento,Municipio);
-}
+    }
+    public void listado(ComboBox tipo,ComboBox Partido,TextField nombre,ComboBox Departamento, ComboBox Municipio){
+    archivos("Listado");
+        String almacenar=tipo.getValue().toString()+"-"+Partido.getValue().toString()+"-"+nombre.getText()+"-"+Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
+        try {
+            FileWriter archivo=new FileWriter("Listado",true);
+            archivo.write(almacenar+"\n");
+            archivo.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

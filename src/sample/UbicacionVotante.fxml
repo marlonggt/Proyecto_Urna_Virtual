@@ -21,8 +21,8 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="departamento" layoutX="280.0" layoutY="227.0" onAction="#datos" prefHeight="26.0" prefWidth="278.0" />
-      <ComboBox fx:id="municipio" layoutX="280.0" layoutY="293.0" prefHeight="26.0" prefWidth="278.0" />
+      <ComboBox fx:id="departamento" layoutX="280.0" layoutY="227.0" onAction="#datos" prefHeight="26.0" prefWidth="278.0" promptText="Seleccione un  departamento" />
+      <ComboBox fx:id="municipio" layoutX="280.0" layoutY="293.0" prefHeight="26.0" prefWidth="278.0" promptText="Seleccione un municipio" />
       <AnchorPane prefHeight="123.0" prefWidth="698.0" style="-fx-background-color: #003d66;">
          <children>
             <Label alignment="CENTER" layoutX="128.0" layoutY="36.0" prefHeight="51.0" prefWidth="445.0" text="Seleccion de localidad del votante" textFill="WHITE">
