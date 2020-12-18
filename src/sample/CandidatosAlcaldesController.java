@@ -20,19 +20,13 @@ import java.util.ResourceBundle;
 
 public class CandidatosAlcaldesController extends RegistroController{
     @FXML private ComboBox candidato;
-
+      public void datos(){
+      listaCandidatos("Alcalde",PartidoPolitico,candidato);
+      }
       public void votar(){
-        listaCandidatos("Alcalde",PartidoPolitico,candidato);
-        if(revision(candidato)){
-            Alert mensaje=new Alert(Alert.AlertType.WARNING);
-            mensaje.setTitle("Informacion");
-            mensaje.setHeaderText("Lo sentimos existen campos vacios");
-            mensaje.showAndWait();
-        }
-        else{
+
         generarFormulario("Votacion diputados","CandidatosDiputados");
         }
-    }
 
 
     @Override
@@ -42,7 +36,7 @@ public class CandidatosAlcaldesController extends RegistroController{
         Partidos.add("Partido Nacional");
         ObservableList<String> l= FXCollections.observableArrayList(Partidos);
         PartidoPolitico.setItems(l);
-        votar();
+        datos();
     }
 
 }

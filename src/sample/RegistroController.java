@@ -193,7 +193,8 @@ public class RegistroController implements Initializable {
                    }
                }
            }
-           PartidoPolitico.setPromptText("Sellecione");
+                PartidoPolitico.setPromptText("Seleccione un partido politico");
+                candidato.setPromptText("Seleccione un candidato");
            }
 
     } catch (FileNotFoundException e) {
@@ -252,13 +253,5 @@ public class RegistroController implements Initializable {
             e.getCause();
         }
     }
-    //Verificar que no existan campos vacios durante votacion
-    public boolean revision(ComboBox candidato){
-          boolean r=false;
-          if(PartidoPolitico.getValue()==null||candidato.getValue()==null){
-          r=true;
 
-          }
-          return r;
-    }
 }

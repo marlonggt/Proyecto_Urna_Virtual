@@ -1,24 +1,21 @@
 package sample;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
-public class CandidatosPresidentesController{
+public class CandidatosPresidentesController extends RegistroController{
+@FXML private ComboBox candidato;
+    public void datos(){
 
+    }
+    //funcion para regresar a la ventana principal
+    public void votar(){
 
-//funcion para regresar a la ventana principal
-    public void regresarLoginVotante() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("LoginVotante.fxml"));
-            Stage regiStage = new Stage();
-            regiStage.setTitle("Urna Virtual 2020");
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
+        generarFormulario("Login","LoginVotante");
     }
 }
+

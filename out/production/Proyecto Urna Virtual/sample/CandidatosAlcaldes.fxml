@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CandidatosAlcaldesController">
    <children>
-      <Button layoutX="323.0" layoutY="399.0" mnemonicParsing="false" onAction="#generarSelecDiputados" style="-fx-background-color: #003d66;" text="Votar" textFill="WHITE">
+      <Button layoutX="323.0" layoutY="399.0" mnemonicParsing="false" onAction="#votar" style="-fx-background-color: #003d66;" text="Votar" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -30,7 +30,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <ComboBox fx:id="PartidoPolitico" layoutX="292.0" layoutY="213.0" onAction="#votar" prefHeight="25.0" prefWidth="296.0" />
-      <ComboBox fx:id="candidato" layoutX="292.0" layoutY="289.0" onAction="#votar" prefHeight="25.0" prefWidth="296.0" />
+      <ComboBox fx:id="PartidoPolitico" layoutX="292.0" layoutY="213.0" onAction="#datos" prefHeight="25.0" prefWidth="296.0" promptText="Seleccione un partido politico" />
+      <ComboBox fx:id="candidato" layoutX="292.0" layoutY="289.0" prefHeight="25.0" prefWidth="296.0" promptText="Seleccione un candidato" />
    </children>
 </AnchorPane>
