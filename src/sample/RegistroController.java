@@ -24,7 +24,7 @@ import java.util.Scanner;
 public class RegistroController implements Initializable {
 
     @FXML private TextField nombre;
-    @FXML private TextField identidad;
+    @FXML protected TextField identidad;
     @FXML private TextField edad;
     @FXML private RadioButton OptMasculino;
     @FXML private RadioButton OptFemenino;
@@ -33,8 +33,6 @@ public class RegistroController implements Initializable {
     @FXML protected ComboBox PartidoPolitico;
     @FXML protected ComboBox Departamento;
     @FXML protected ComboBox Municipio;
-    protected String d;
-    protected String m;
     protected ArrayList <String> mun=new ArrayList<>();
     protected ArrayList <String> depto=new ArrayList<>();
     protected ArrayList <String> Tipos=new ArrayList<>();
@@ -179,7 +177,7 @@ public class RegistroController implements Initializable {
             e.printStackTrace();
         }
         }
-    //Almacenar los datos en arraylista para su seleccion
+    //Almacenar los datos en arraylist para su seleccion
     public void listado(String tipo,ComboBox Partido,String Departamento, String Municipio,ComboBox candidato){
             ArrayList <String>lista=new ArrayList<>();
             try {
@@ -195,6 +193,7 @@ public class RegistroController implements Initializable {
                    }
                }
            }
+           PartidoPolitico.setPromptText("Sellecione");
            }
 
     } catch (FileNotFoundException e) {
@@ -203,6 +202,41 @@ public class RegistroController implements Initializable {
             ObservableList<String> list=FXCollections.observableList(lista);
             candidato.setItems(list);
 
+    }
+
+    //Guardar ubicacion del votante en archivo de texto
+    public void ubicacion(){
+          archivos("UbicacionVotante");
+          String informacion=Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
+        try {
+            FileWriter ubicacion=new FileWriter("UbicacionVotante");
+            ubicacion.write(informacion);
+            ubicacion.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //Funcion que retorna la ubicacion almacenada en el archivo
+    public String lugar(){
+        File comparar=new File("UbicacionVotante");
+        String informacion="";
+        try{
+            Scanner entrada=new Scanner(comparar);
+            while(entrada.hasNextLine()){
+                informacion=entrada.nextLine();
+            }
+        }
+        catch (FileNotFoundException e){
+            System.out.println("Error"+e);
+        }
+
+       return informacion;
+    }
+    //Funcion que busca y agrega los datos segun el partido seleccionado y segun su ubicacion
+    public void listaCandidatos(String tipoCandidatura,ComboBox PartidoPolitico,ComboBox candidato){
+        String DM=lugar();
+        String l[]=DM.split("-");
+        listado(tipoCandidatura,PartidoPolitico,l[0],l[1],candidato);
     }
     //Cambiar de formulario
     public void generarFormulario(String texto,String nombre){
@@ -218,31 +252,13 @@ public class RegistroController implements Initializable {
             e.getCause();
         }
     }
-    //Guardar ubicacion del votante
-    public void ubicacion(){
-          archivos("UbicacionVotante");
-          String informacion=Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
-        try {
-            FileWriter ubicacion=new FileWriter("UbicacionVotante");
-            ubicacion.write(informacion);
-            ubicacion.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public String lugar(){
-        File comparar=new File("UbicacionVotante");
-        String informacion="";
-        try{
-            Scanner entrada=new Scanner(comparar);
-            while(entrada.hasNextLine()){
-                informacion=entrada.nextLine();
-            }
-        }
-        catch (FileNotFoundException e){
-            System.out.println("Error"+e);
-        }
+    //Verificar que no existan campos vacios durante votacion
+    public boolean revision(ComboBox candidato){
+          boolean r=false;
+          if(PartidoPolitico.getValue()==null||candidato.getValue()==null){
+          r=true;
 
-       return informacion;
+          }
+          return r;
     }
 }
