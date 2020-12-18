@@ -31,7 +31,7 @@ public class UbicacionVotanteController extends RegistroController {
         Mostrar(departamento,municipio);
     }
 
-public void datos(){
+    public void datos(){
         Mostrar(departamento,municipio);
 }
 }

@@ -67,6 +67,7 @@ public class RegistroController implements Initializable {
             String sexo;
             if (OptMasculino.isSelected()){
                 sexo="Masculino";
+
             }
             else {
                 sexo="Femenino";
