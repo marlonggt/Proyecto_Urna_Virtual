@@ -22,19 +22,16 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class UbicacionVotanteController extends RegistroController {
-
+    @FXML private ComboBox departamento;
+    @FXML private ComboBox municipio;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       Mostrar(Departamento,Municipio);
+
+        Mostrar(departamento,municipio);
     }
 
     public void datos(){
-    Mostrar(Departamento,Municipio);
-
-    }
-    public void votar(){
-    ubicacion();
-    generarFormulario("Alcaldes","CandidatosAlcaldes");
-    }
+        Mostrar(departamento,municipio);
+}
 }
