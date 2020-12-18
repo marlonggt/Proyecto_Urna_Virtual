@@ -21,8 +21,6 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="323.0" layoutY="212.0" prefHeight="26.0" prefWidth="267.0" />
-      <ChoiceBox layoutX="323.0" layoutY="288.0" prefHeight="26.0" prefWidth="267.0" />
       <AnchorPane layoutX="-3.0" layoutY="-4.0" prefHeight="122.0" prefWidth="714.0" style="-fx-background-color: #003d66;">
          <children>
             <Label layoutX="113.0" layoutY="44.0" prefHeight="34.0" prefWidth="487.0" text="Seleccion de Candidatos a Alcaldes" textFill="WHITE">
@@ -32,5 +30,7 @@
             </Label>
          </children>
       </AnchorPane>
+      <ComboBox fx:id="PartidoPolitico" layoutX="292.0" layoutY="213.0" onAction="#votar" prefHeight="25.0" prefWidth="296.0" />
+      <ComboBox fx:id="candidato" layoutX="292.0" layoutY="289.0" onAction="#votar" prefHeight="25.0" prefWidth="296.0" />
    </children>
 </AnchorPane>

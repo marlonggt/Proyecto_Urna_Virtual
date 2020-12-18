@@ -3,8 +3,12 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -26,16 +30,17 @@ public class RegistroController implements Initializable {
     @FXML private RadioButton OptFemenino;
     @FXML private DatePicker Fecha;
     @FXML private ComboBox TipoCandidatura;
-    @FXML private ComboBox PartidoPolitico;
-    @FXML private ComboBox Departamento;
-    @FXML private ComboBox Municipio;
-
+    @FXML protected ComboBox PartidoPolitico;
+    @FXML protected ComboBox Departamento;
+    @FXML protected ComboBox Municipio;
+    protected String d;
+    protected String m;
     protected ArrayList <String> mun=new ArrayList<>();
     protected ArrayList <String> depto=new ArrayList<>();
     protected ArrayList <String> Tipos=new ArrayList<>();
     protected ArrayList <String> Partidos=new ArrayList<>();
 
-    @Override
+      @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Lista de tipos de candidaturas
         Tipos.add("Presidente");
@@ -120,7 +125,7 @@ public class RegistroController implements Initializable {
         }
     }
 
-    //Funcion para mostrar los municipios segun el departamento seleccionado
+    //Funcion para almacenar los municipios segun el departamento seleccionado
     public void Mostrar(ComboBox d,ComboBox m){
         File datos=new File("Departamentos\\DepartamentosHonduras.txt");
         try {
@@ -157,9 +162,11 @@ public class RegistroController implements Initializable {
             m.setItems(list);
         }
     }
+    //Accion para el boton de mostrar en combobox
     public void DatosCombobox(){
     Mostrar(Departamento,Municipio);
     }
+    //Almacenar datos de candidatos
     public void listado(ComboBox tipo,ComboBox Partido,TextField nombre,ComboBox Departamento, ComboBox Municipio){
     archivos("Listado");
         String almacenar=tipo.getValue().toString()+"-"+Partido.getValue().toString()+"-"+nombre.getText()+"-"+Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
@@ -170,5 +177,71 @@ public class RegistroController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        }
+    //Almacenar los datos en arraylista para su seleccion
+    public void listado(String tipo,ComboBox Partido,String Departamento, String Municipio,ComboBox candidato){
+            ArrayList <String>lista=new ArrayList<>();
+            try {
+            File archivo=new File("Listado");
+            Scanner entrada=new Scanner(archivo);
+            while(entrada.hasNextLine()){
+            String linea=entrada.nextLine();
+            String mostrar[]=linea.split("-");
+           if(PartidoPolitico.getValue()!=null){
+               if(tipo.equals(mostrar[0])&&Partido.getValue().toString().equals(mostrar[1])){
+                   if(Departamento.equals(mostrar[3])&&Municipio.equals(mostrar[4])){
+                       lista.add(mostrar[2]);
+                   }
+               }
+           }
+           }
+
+    } catch (FileNotFoundException e) {
+             e.printStackTrace();
+         }
+            ObservableList<String> list=FXCollections.observableList(lista);
+            candidato.setItems(list);
+
+    }
+    //Cambiar de formulario
+    public void generarFormulario(String texto,String nombre){
+        String formulario=nombre+".fxml";
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(formulario));
+            Stage regiStage = new Stage();
+            regiStage.setTitle(texto);
+            regiStage.setScene(new Scene(root));
+            regiStage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+    //Guardar ubicacion del votante
+    public void ubicacion(){
+          archivos("UbicacionVotante");
+          String informacion=Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
+        try {
+            FileWriter ubicacion=new FileWriter("UbicacionVotante");
+            ubicacion.write(informacion);
+            ubicacion.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public String lugar(){
+        File comparar=new File("UbicacionVotante");
+        String informacion="";
+        try{
+            Scanner entrada=new Scanner(comparar);
+            while(entrada.hasNextLine()){
+                informacion=entrada.nextLine();
+            }
+        }
+        catch (FileNotFoundException e){
+            System.out.println("Error"+e);
+        }
+
+       return informacion;
     }
 }
