@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="394.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InscripcionPartido">
+   <children>
+      <AnchorPane prefHeight="118.0" prefWidth="900.0" style="-fx-background-color: #003d66;">
+         <children>
+            <Label layoutX="34.0" layoutY="42.0" prefHeight="35.0" prefWidth="416.0" text="Formulario Inscripcion de Partidos" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <Label layoutX="44.0" layoutY="154.0" prefHeight="38.0" prefWidth="208.0" text="Nombre del partido">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombre" layoutX="327.0" layoutY="160.0" prefHeight="26.0" prefWidth="444.0" />
+      <Label layoutX="44.0" layoutY="250.0" prefHeight="38.0" prefWidth="208.0" text="Fecha">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="guardar" layoutX="401.0" layoutY="330.0" mnemonicParsing="false" onAction="#Agregar" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: #003d66;" text="Guardar" textFill="WHITE">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Button>
+      <Label layoutX="44.0" layoutY="201.0" prefHeight="38.0" prefWidth="208.0" text="Lugar de inscripcion">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Lugar" layoutX="327.0" layoutY="207.0" prefHeight="25.0" prefWidth="444.0" />
+      <DatePicker layoutX="327.0" layoutY="257.0" prefHeight="25.0" prefWidth="174.0" />
+   </children>
+</AnchorPane>
