@@ -28,7 +28,7 @@ public class RegistroController implements Initializable {
     @FXML private TextField edad;
     @FXML private RadioButton OptMasculino;
     @FXML private RadioButton OptFemenino;
-    @FXML private DatePicker Fecha;
+    @FXML protected DatePicker Fecha;
     @FXML private ComboBox TipoCandidatura;
     @FXML protected ComboBox PartidoPolitico;
     @FXML protected ComboBox Departamento;
