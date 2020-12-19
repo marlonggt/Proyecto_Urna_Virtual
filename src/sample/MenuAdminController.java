@@ -5,18 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MenuAdminController extends RegistroController{
-    public  void accion1(){
-    generarFormulario("Inscripcion de partidos politicos","InscripcionPartido");
-    }
-    public  void accion2(){
-        generarFormulario("Inscripcion de candidatos","registro");
-    }
-    public  void accion3(){
-        generarFormulario("Finalizar votacion","");
-    }
-    public  void accion4(){
-    }
+public class MenuAdminController {
+
     //funcion para generar la ventana de registro de candidatos
     public void generarRegistro(){
         try {
@@ -57,5 +47,4 @@ public class MenuAdminController extends RegistroController{
             e.getCause();
         }
     }
-
-}
+   }

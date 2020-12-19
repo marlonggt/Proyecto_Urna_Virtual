@@ -15,7 +15,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Hyperlink layoutX="69.0" layoutY="238.0" onAction="#accion3" prefHeight="40.0" prefWidth="206.0" text="3. Finalizar Votacion" textFill="#0f41c9">
+      <Hyperlink layoutX="69.0" layoutY="238.0" prefHeight="40.0" prefWidth="206.0" text="3. Finalizar Votacion" textFill="#0f41c9">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -25,7 +25,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Hyperlink>
-      <Hyperlink layoutX="69.0" layoutY="190.0" onAction="#accion2" prefHeight="40.0" prefWidth="226.0" text="2. Registrar Candidato" textFill="#0f41c9">
+      <Hyperlink layoutX="69.0" layoutY="190.0" prefHeight="40.0" prefWidth="226.0" text="2. Registrar Candidato" textFill="#0f41c9">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -35,7 +35,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Hyperlink layoutX="69.0" layoutY="285.0" onAction="#accion4" prefHeight="40.0" prefWidth="465.0" text="4. Restablecer todo e iniciar una nueva votacion" textFill="#0f41c9">
+      <Hyperlink layoutX="69.0" layoutY="285.0" prefHeight="40.0" prefWidth="465.0" text="4. Restablecer todo e iniciar una nueva votacion" textFill="#0f41c9">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
