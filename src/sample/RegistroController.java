@@ -80,8 +80,7 @@ public class RegistroController implements Initializable {
             mensaje.setTitle("Informacion");
             mensaje.setHeaderText("Candidato agregado");
             mensaje.showAndWait();
-            listado(TipoCandidatura,PartidoPolitico,nombre,Departamento,Municipio);
-
+            listado(PartidoPolitico,nombre,Departamento,Municipio);
         }
     }
 
@@ -166,11 +165,23 @@ public class RegistroController implements Initializable {
     Mostrar(Departamento,Municipio);
     }
     //Almacenar datos de candidatos
-    public void listado(ComboBox tipo,ComboBox Partido,TextField nombre,ComboBox Departamento, ComboBox Municipio){
-    archivos("Listado");
-        String almacenar=tipo.getValue().toString()+"-"+Partido.getValue().toString()+"-"+nombre.getText()+"-"+Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
+    public void listado(ComboBox Partido,TextField nombre,ComboBox Departamento, ComboBox Municipio){
+       String documento;
+       String dato=TipoCandidatura.getValue().toString();
+       //Determinar el archivo donde se almacena la informacion
+       if (dato.equals("Alcalde")){
+           documento="CandidatoAlcalde";
+        }
+       else if (dato.equals("Diputado")){
+            documento="CandidatoDiputado";
+        }
+       else {
+           documento="CandidatoPresidente";
+       }
+       archivos(documento);
+        String almacenar=Partido.getValue().toString()+"-"+nombre.getText()+"-"+Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
         try {
-            FileWriter archivo=new FileWriter("Listado",true);
+            FileWriter archivo=new FileWriter(documento,true);
             archivo.write(almacenar+"\n");
             archivo.close();
         } catch (IOException e) {
@@ -178,7 +189,7 @@ public class RegistroController implements Initializable {
         }
         }
     //Almacenar los datos en arraylist para su seleccion
-    public void listado(String tipo,ComboBox Partido,String Departamento, String Municipio,ComboBox candidato){
+    public void listado(ComboBox Partido,String Departamento, String Municipio,ComboBox candidato){
             ArrayList <String>lista=new ArrayList<>();
             try {
             File archivo=new File("Listado");
@@ -187,7 +198,7 @@ public class RegistroController implements Initializable {
             String linea=entrada.nextLine();
             String mostrar[]=linea.split("-");
            if(PartidoPolitico.getValue()!=null){
-               if(tipo.equals(mostrar[0])&&Partido.getValue().toString().equals(mostrar[1])){
+               if(Partido.getValue().toString().equals(mostrar[1])){
                    if(Departamento.equals(mostrar[3])&&Municipio.equals(mostrar[4])){
                        lista.add(mostrar[2]);
                    }
@@ -237,7 +248,7 @@ public class RegistroController implements Initializable {
     public void listaCandidatos(String tipoCandidatura,ComboBox PartidoPolitico,ComboBox candidato){
         String DM=lugar();
         String l[]=DM.split("-");
-        listado(tipoCandidatura,PartidoPolitico,l[0],l[1],candidato);
+        listado(PartidoPolitico,l[0],l[1],candidato);
     }
     //Cambiar de formulario
     public void generarFormulario(String texto,String nombre){

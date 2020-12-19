@@ -98,7 +98,7 @@ public class LoginAdministradorController {
 
         public void generarRegistro(){
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
                 Stage regiStage = new Stage();
                 regiStage.setTitle("Opciones del administrador");
                 regiStage.setScene(new Scene(root));
