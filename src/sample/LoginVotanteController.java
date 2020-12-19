@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -13,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,8 +40,9 @@ public class LoginVotanteController implements Initializable {
     public void accion2(){
         archivos("Votantes");
         char digitos[]=identidad.getText().toCharArray();
-        int n=digitos.length;
+        int n = digitos.length;
         System.out.println(n);
+
         if(n!=13){
             Alert mensaje=new Alert(Alert.AlertType.WARNING);
             mensaje.setTitle("Informacion");
@@ -67,7 +68,6 @@ public class LoginVotanteController implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 generarLocalidad();
             }
         }
@@ -111,7 +111,7 @@ public class LoginVotanteController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("LoginAdministrador.fxml"));
             Stage regiStage = new Stage();
-            regiStage.setTitle("Opciones del administrador");
+            regiStage.setTitle("Localizacion del Votante");
             regiStage.setScene(new Scene(root));
             regiStage.show();
         } catch (Exception e){
@@ -128,6 +128,7 @@ public class LoginVotanteController implements Initializable {
             regiStage.setTitle("Localizacion del Votante");
             regiStage.setScene(new Scene(root));
             regiStage.show();
+
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();
