@@ -25,6 +25,7 @@ public class CandidatosAlcaldesController implements Initializable {
     @FXML private TableColumn<DatosColumna,String> candidato;
     @FXML private TableColumn<DatosColumna,String>partido;
     @FXML private TableView<DatosColumna> lista;
+
     ObservableList<DatosColumna> list= FXCollections.observableArrayList();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -37,6 +38,7 @@ public class CandidatosAlcaldesController implements Initializable {
                 String linea=entrada.nextLine();
                 String info[]=linea.split("-");
                 if(info[2].equals(b[0])&&info[3].equals(b[1])){
+
                     list.addAll(new DatosColumna(info[1],info[0]));
                 }
 
