@@ -15,6 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("Urna Virtual 2020");
         primaryStage.setScene(new Scene(root, 700, 480));
         primaryStage.show();
+        primaryStage.resizableProperty().setValue(false);
 
         //commit de prueba
     }
