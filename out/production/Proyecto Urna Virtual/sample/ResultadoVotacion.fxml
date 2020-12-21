@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="668.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultadoVotacion">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="100.0" prefWidth="923.0" style="-fx-background-color: #003d66;">
+         <children>
+            <Label layoutX="209.0" layoutY="33.0" prefHeight="46.0" prefWidth="505.0" text="Resultados Proceso Electoral 2020" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ListView layoutX="29.0" layoutY="202.0" prefHeight="386.0" prefWidth="858.0" />
+      <Label layoutX="43.0" layoutY="158.0" prefHeight="19.0" prefWidth="97.0" text="Departamento">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="248.0" layoutY="158.0" prefHeight="19.0" prefWidth="70.0" text="Municipio">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="409.0" layoutY="158.0" prefHeight="19.0" prefWidth="79.0" text="Candidatura">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="564.0" layoutY="158.0" prefHeight="19.0" prefWidth="174.0" text="Nombre candidato ganador">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="818.0" layoutY="158.0" prefHeight="18.0" prefWidth="37.0" text="Votos">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
