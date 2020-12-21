@@ -11,8 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -49,16 +47,15 @@ public class RegistroController implements Initializable {
         ObservableList<String> list= FXCollections.observableArrayList(Tipos);
         TipoCandidatura.setItems(list);
 
-
         //Lista de partidos politicos
-        Partidos.add("Partido Nacional");
-        Partidos.add("Partido Liberal");
+        Partidos.add("Partido Paz y Unidad");
+        Partidos.add("Partido Reconciliacion");
         ObservableList<String> list2= FXCollections.observableArrayList(Partidos);
         PartidoPolitico.setItems(list2);
         Mostrar(Departamento,Municipio);
     }
 
-//Evaluacion identidad
+    //Funcion Evaluacion identidad
     public void evaluacion(){
         char digitos[]=identidad.getText().toCharArray();
         int n=digitos.length;
@@ -70,8 +67,8 @@ public class RegistroController implements Initializable {
             identidad.setText("");
             mensaje.showAndWait();
         }
-
     }
+
     public void  Agregar(){
         archivos("Candidatos");
         boolean w=revision();
@@ -80,14 +77,11 @@ public class RegistroController implements Initializable {
             mensaje.setTitle("Informacion");
             mensaje.setHeaderText("Lo sentimos existen campos vacios");
             mensaje.showAndWait();
-        }
-        else {
+        } else {
             String sexo;
             if (OptMasculino.isSelected()){
                 sexo="Masculino";
-
-            }
-            else {
+            } else {
                 sexo="Femenino";
             }
             escritura("Candidatos",identidad,nombre,edad,sexo,Fecha,TipoCandidatura,PartidoPolitico,Departamento,Municipio);
@@ -111,6 +105,7 @@ public class RegistroController implements Initializable {
         }
         return r;
     }
+
     //Agregar datos del candidato su respectivo archivo de texto
     public void escritura (String texto, TextField identidad, TextField nombre, TextField edad, String sexo, DatePicker fecha, ComboBox TipoCandidatura,ComboBox Partido,ComboBox departamento, ComboBox municipio ){
         String candidato=identidad.getText()+" "+nombre.getText()+" "+edad.getText()+" años "+sexo+" "+fecha.getValue().toString()+" "+TipoCandidatura.getValue().toString()+" "+Partido.getValue().toString()+" "+departamento.getValue().toString()+" "+municipio.getValue().toString();
@@ -122,9 +117,9 @@ public class RegistroController implements Initializable {
             e.printStackTrace();
         }
     }
+
     //Verificar si existe el archivo de texto
     public  void  archivos (String texto){
-
         File archivo=new File(texto);
         try{
             boolean a=archivo.createNewFile();
@@ -175,34 +170,35 @@ public class RegistroController implements Initializable {
             m.setItems(list);
         }
     }
+
     //Accion para el boton de mostrar en combobox
     public void DatosCombobox(){
     Mostrar(Departamento,Municipio);
     }
+
     //Almacenar datos de candidatos
-    public void listado(ComboBox Partido,TextField nombre,ComboBox Departamento, ComboBox Municipio){
-       String documento;
-       String dato=TipoCandidatura.getValue().toString();
-       //Determinar el archivo donde se almacena la informacion
-       if (dato.equals("Alcalde")){
-           documento="CandidatoAlcalde";
+    public void listado(ComboBox Partido,TextField nombre,ComboBox Departamento, ComboBox Municipio) {
+        String documento;
+        String dato = TipoCandidatura.getValue().toString();
+        //Determinar el archivo donde se almacena la informacion
+        if (dato.equals("Alcalde")) {
+            documento = "CandidatoAlcalde";
+        } else if (dato.equals("Diputado")) {
+            documento = "CandidatoDiputado";
+        } else {
+            documento = "CandidatoPresidente";
         }
-       else if (dato.equals("Diputado")){
-            documento="CandidatoDiputado";
-        }
-       else {
-           documento="CandidatoPresidente";
-       }
-       archivos(documento);
-        String almacenar=Partido.getValue().toString()+"-"+nombre.getText()+"-"+Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
+        archivos(documento);
+        String almacenar = Partido.getValue().toString() + "-" + nombre.getText() + "-" + Departamento.getValue().toString() + "-" + Municipio.getValue().toString();
         try {
-            FileWriter archivo=new FileWriter(documento,true);
-            archivo.write(almacenar+"\n");
+            FileWriter archivo = new FileWriter(documento, true);
+            archivo.write(almacenar + "\n");
             archivo.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        }
+    }
+
     //Almacenar los datos en arraylist para su seleccion
     public void listado(ComboBox Partido,String Departamento, String Municipio,ComboBox candidato){
             ArrayList <String>lista=new ArrayList<>();
@@ -222,13 +218,11 @@ public class RegistroController implements Initializable {
                 PartidoPolitico.setPromptText("Seleccione un partido politico");
                 candidato.setPromptText("Seleccione un candidato");
            }
-
     } catch (FileNotFoundException e) {
              e.printStackTrace();
          }
             ObservableList<String> list=FXCollections.observableList(lista);
             candidato.setItems(list);
-
     }
 
     //Guardar ubicacion del votante en archivo de texto
@@ -243,6 +237,7 @@ public class RegistroController implements Initializable {
             e.printStackTrace();
         }
     }
+
     //Funcion que retorna la ubicacion almacenada en el archivo
 
 
@@ -276,5 +271,4 @@ public class RegistroController implements Initializable {
             e.getCause();
         }
     }
-
 }

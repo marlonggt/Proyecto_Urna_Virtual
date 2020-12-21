@@ -9,16 +9,12 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 public class CandidatosAlcaldesController extends ResultadoVotacion{
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Cargar informacion a la tabla
         tabla("CandidatoAlcalde");
     }
-
-
 
     public void votar(Event event){
         //System.out.println(lista.getSelectionModel().getSelectedItem().getCandidato());
@@ -38,4 +34,3 @@ public class CandidatosAlcaldesController extends ResultadoVotacion{
         }
     }
 }
-

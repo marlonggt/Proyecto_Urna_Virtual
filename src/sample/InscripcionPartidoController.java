@@ -7,13 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.awt.*;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class InscripcionPartidoController extends RegistroController {
+public class InscripcionPartidoController extends RegistroController{
     @FXML TextField nombrePartido;
     @FXML TextField nombrePromotor;
 
