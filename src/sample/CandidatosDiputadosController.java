@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class CandidatosDiputadosController implements Initializable {
+public class CandidatosDiputadosController extends ResultadoVotacion {
     @FXML private TableColumn<DatosColumna,String> candidato;
     @FXML private TableColumn<DatosColumna,String>partido;
     @FXML private TableView<DatosColumna> lista;
@@ -32,40 +32,8 @@ public class CandidatosDiputadosController implements Initializable {
     ObservableList<DatosColumna> list= FXCollections.observableArrayList();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String u=lugar();
-        String b[]=u.split("-");
-        File archivo=new File("CandidatoDiputado");
-        try {
-            Scanner entrada=new Scanner(archivo);
-            while (entrada.hasNextLine()){
-                String linea=entrada.nextLine();
-                String info[]=linea.split("-");
-                if(info[2].equals(b[0])&&info[3].equals(b[1])){
-
-                    list.addAll(new DatosColumna(info[1],info[0]));
-                }
-
-            }
-        } catch ( FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        lista.setItems(list);
-        candidato.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("candidato"));
-        partido.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("partido"));
-    }
-    public String lugar(){
-        File archivo=new File("UbicacionVotante");
-        String linea="";
-        try {
-            Scanner entrada=new Scanner(archivo);
-            while (entrada.hasNextLine()){
-                linea=entrada.nextLine();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return linea;
+        //Cargar informacion a la tabla
+        tabla("CandidatoDiputado");
     }
 
     public void votarPresidentes(Event event){
