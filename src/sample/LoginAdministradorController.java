@@ -1,7 +1,9 @@
 package sample;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -30,7 +32,7 @@ public class LoginAdministradorController {
         bandera.setImage(image);
     }
 
-    public void sesion(){
+    public void sesion(Event event){
 
         ArchivoSeguridad();
         boolean w=acceso(user.getText(),password.getText());
@@ -50,7 +52,7 @@ public class LoginAdministradorController {
             mensaje.setHeaderText("Acceso Concedido");
             mensaje.setContentText(" Bienvenido "+ user.getText());
             mensaje.showAndWait();
-            generarRegistro();
+            generarRegistro(event);
         }
     }
 
@@ -96,12 +98,12 @@ public class LoginAdministradorController {
             }
         }
 
-        public void generarRegistro(){
+        public void generarRegistro(Event event){
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
-                Stage regiStage = new Stage();
-                regiStage.setTitle("Opciones del administrador");
-                regiStage.setScene(new Scene(root));
+                Scene registro = new Scene(root);
+                Stage regiStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                regiStage.setScene(registro);
                 regiStage.show();
             } catch (Exception e){
                 e.printStackTrace();

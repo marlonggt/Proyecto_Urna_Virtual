@@ -39,7 +39,7 @@ public class ResultadoVotacion {
 
             } else{
                 if (votos[i] == masVotos)
-                    resultado = "empate";
+                    resultado = "Empate";
             }
 
         }

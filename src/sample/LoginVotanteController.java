@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +38,7 @@ public class LoginVotanteController extends RegistroController {
         logoImage.setImage(image);
     }
 
-    public void accion2(){
+    public void accion2(Event event){
        archivos("Votantes");
         char digitos[]=identidad.getText().toCharArray();
         int n = digitos.length;
@@ -67,7 +69,8 @@ public class LoginVotanteController extends RegistroController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                generarLocalidad();
+
+                generarLocalidad(event);
             }
         }
 
@@ -95,13 +98,13 @@ public class LoginVotanteController extends RegistroController {
 
 
     //funcion para generar la ventana de registro de candidatos
-    public void generarRegistro(){
+    public void generarAdminLogin(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("LoginAdministrador.fxml"));
-            Stage regiStage = new Stage();
-            regiStage.setTitle("Localizacion del Votante");
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
+            Scene adminLogin = new Scene(root);
+            Stage loginAdmin_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginAdmin_stage.setScene(adminLogin);
+            loginAdmin_stage.show();
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();
@@ -109,13 +112,14 @@ public class LoginVotanteController extends RegistroController {
     }
 
     //funcion para generar la ventana de localidad
-    public void generarLocalidad(){
+    public void generarLocalidad(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("UbicacionVotante.fxml"));
-            Stage regiStage = new Stage();
-            regiStage.setTitle("Localizacion del Votante");
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
+
 
         } catch (Exception e){
             e.printStackTrace();
