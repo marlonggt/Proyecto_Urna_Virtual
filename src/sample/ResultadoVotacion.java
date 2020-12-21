@@ -9,27 +9,40 @@ public class ResultadoVotacion {
     int contadorvotos;
 
     ArrayList <String> getCandidatos = new ArrayList();
+    int votos[];
 
     //ingresar el voto y sumarlo a contador
-    public void votar(){
+    public void votar(String candidato){
+        getCandidatos.add("Marcos"); getCandidatos.add("Allan"); getCandidatos.add("Onan"); getCandidatos.add("Marlon");
+        votos = new int[getCandidatos.size()];
+
+        String candidatoSelec= candidato;
+        for (int i = 0; i < votos.length;i++){
+            if(getCandidatos.get(i).equals(candidatoSelec))
+                votos[i] = votos[i]+1;
+        }
 
     }
 
     //Elige al ganador
-    public int elegirGanador(){
-        int masVotos = getCandidatos.indexOf(0);
-        int ganador = 0;
+    public String elegirGanador(){
+        int masVotos = votos[0];
+        String resultado = getCandidatos.get(0);
 
-        for (int i = 0; i < getCandidatos.size(); i++){
-            if(getCandidatos.indexOf(i) > masVotos){
-                ganador = i;
-                masVotos = getCandidatos.indexOf(i);
 
+        for (int i = 1; i < getCandidatos.size(); i++){
+            if(votos[i] > masVotos){
+                masVotos = votos[i];
+                resultado = getCandidatos.get(i);
+
+            } else{
+                if (votos[i] == masVotos)
+                    resultado = "empate";
             }
 
         }
 
-        return ganador;
+        return resultado;
     }
 
 
