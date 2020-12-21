@@ -56,7 +56,20 @@ public class RegistroController implements Initializable {
         Mostrar(Departamento,Municipio);
     }
 
+//Evaluacion identidad
+    public void evaluacion(){
+        char digitos[]=identidad.getText().toCharArray();
+        int n=digitos.length;
+        System.out.println(n);
+        if(n!=13){
+            Alert mensaje=new Alert(Alert.AlertType.WARNING);
+            mensaje.setTitle("Informacion");
+            mensaje.setHeaderText("Ingrese un numero de identidad correcto");
+            identidad.setText("");
+            mensaje.showAndWait();
+        }
 
+    }
     public void  Agregar(){
         archivos("Candidatos");
         boolean w=revision();
