@@ -55,7 +55,7 @@ public class CandidatosAlcaldesController implements Initializable {
     }
 
     public String lugar(){
-        File archivo=new File("ubicacionVotante");
+        File archivo=new File("UbicacionVotante");
         String linea="";
         try {
             Scanner entrada=new Scanner(archivo);

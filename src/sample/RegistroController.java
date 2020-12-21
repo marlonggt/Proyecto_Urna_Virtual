@@ -233,8 +233,8 @@ public class RegistroController implements Initializable {
 
     //Guardar ubicacion del votante en archivo de texto
     public void ubicacion(){
-          archivos("UbicacionVotante");
-          String informacion=Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
+        archivos("UbicacionVotante");
+        String informacion=Departamento.getValue().toString()+"-"+Municipio.getValue().toString();
         try {
             FileWriter ubicacion=new FileWriter("UbicacionVotante");
             ubicacion.write(informacion);
@@ -244,28 +244,10 @@ public class RegistroController implements Initializable {
         }
     }
     //Funcion que retorna la ubicacion almacenada en el archivo
-    public String lugar(){
-        File comparar=new File("UbicacionVotante");
-        String informacion="";
-        try{
-            Scanner entrada=new Scanner(comparar);
-            while(entrada.hasNextLine()){
-                informacion=entrada.nextLine();
-            }
-        }
-        catch (FileNotFoundException e){
-            System.out.println("Error"+e);
-        }
 
-       return informacion;
-    }
 
     //Funcion que busca y agrega los datos segun el partido seleccionado y segun su ubicacion
-    public void listaCandidatos(String tipoCandidatura,ComboBox PartidoPolitico,ComboBox candidato){
-        String DM=lugar();
-        String l[]=DM.split("-");
-        listado(PartidoPolitico,l[0],l[1],candidato);
-    }
+
 
     //Cambiar de formulario
     public void generarFormulario(String texto,String nombre){
