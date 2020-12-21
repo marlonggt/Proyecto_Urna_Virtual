@@ -50,9 +50,6 @@ public class CandidatosAlcaldesController implements Initializable {
         lista.setItems(list);
         candidato.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("candidato"));
         partido.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("partido"));
-
-
-
     }
     public String lugar(){
         File archivo=new File("ubicacionVotante");

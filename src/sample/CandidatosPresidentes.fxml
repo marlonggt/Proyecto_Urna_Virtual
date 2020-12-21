@@ -6,23 +6,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CandidatosPresidentesController">
    <children>
-      <Button layoutX="281.0" layoutY="426.0" mnemonicParsing="false" onAction="#votar" text="Votar y Finalizar">
+      <Button layoutX="280.0" layoutY="454.0" mnemonicParsing="false" onAction="#votar" text="Votar y Finalizar">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="76.0" layoutY="229.0" prefHeight="30.0" prefWidth="186.0" text="Partido Politico">
-         <font>
-            <Font name="Arial Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="76.0" layoutY="318.0" prefHeight="30.0" prefWidth="155.0" text="Candidatos">
-         <font>
-            <Font name="Arial Bold" size="25.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="PartidoPolitico" layoutX="333.0" layoutY="231.0" onAction="#datos" prefHeight="26.0" prefWidth="290.0" />
-      <ComboBox fx:id="candidato" layoutX="333.0" layoutY="320.0" prefHeight="26.0" prefWidth="290.0" />
       <AnchorPane layoutX="-3.0" layoutY="-4.0" prefHeight="124.0" prefWidth="704.0" style="-fx-background-color: #003d66;">
          <children>
             <Label layoutX="112.0" layoutY="47.0" prefHeight="30.0" prefWidth="479.0" text="Seleccion de Candidatos Presidenciales" textFill="WHITE">
@@ -32,5 +20,11 @@
             </Label>
          </children>
       </AnchorPane>
+      <TableView fx:id="lista" layoutX="63.0" layoutY="149.0" prefHeight="286.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="candidato" prefWidth="288.0" text="Candidato" />
+          <TableColumn fx:id="partido" prefWidth="286.0" text="Partido politico" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
