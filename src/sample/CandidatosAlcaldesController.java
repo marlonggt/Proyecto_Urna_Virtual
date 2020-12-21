@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 public class CandidatosAlcaldesController extends ResultadoVotacion{
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Cargar informacion a la tabla
         tabla("CandidatoAlcalde");
     }
 

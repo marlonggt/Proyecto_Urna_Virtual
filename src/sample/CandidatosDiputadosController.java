@@ -32,6 +32,7 @@ public class CandidatosDiputadosController extends ResultadoVotacion {
     ObservableList<DatosColumna> list= FXCollections.observableArrayList();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Cargar informacion a la tabla
         tabla("CandidatoDiputado");
     }
 

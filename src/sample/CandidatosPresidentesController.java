@@ -23,6 +23,7 @@ import java.util.Scanner;
 
 public class CandidatosPresidentesController extends ResultadoVotacion{
       public void initialize(URL url, ResourceBundle resourceBundle) {
+     //Cargar informacion a la tabla
      tabla("CandidatoPresidente");
      }
 

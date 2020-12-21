@@ -84,6 +84,7 @@ public class ResultadoVotacion implements Initializable {
         return linea;
     }
 public void tabla(String documento){
+    list.clear();
     String u=lugar();
     String b[]=u.split("-");
     File archivo=new File(documento);
