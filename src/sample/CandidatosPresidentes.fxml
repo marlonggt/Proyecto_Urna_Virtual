@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CandidatosPresidentesController">
    <children>
-      <Button layoutX="281.0" layoutY="426.0" mnemonicParsing="false" onAction="#votar" text="Votar y Finalizar">
+      <Button layoutX="281.0" layoutY="426.0" mnemonicParsing="false" onAction="#finalVotacion" text="Votar y Finalizar">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>

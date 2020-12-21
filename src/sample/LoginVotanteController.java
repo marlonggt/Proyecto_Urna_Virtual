@@ -69,12 +69,11 @@ public class LoginVotanteController extends RegistroController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 generarLocalidad(event);
             }
         }
-
     }
+
     public boolean acceso(String identidad){
         boolean r=false;
         File datos=new File("Votantes");
@@ -93,9 +92,6 @@ public class LoginVotanteController extends RegistroController {
         }
         return r;
     }
-
-
-
 
     //funcion para generar la ventana de registro de candidatos
     public void generarAdminLogin(Event event){
@@ -119,8 +115,6 @@ public class LoginVotanteController extends RegistroController {
             Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             locaStage.setScene(localidad);
             locaStage.show();
-
-
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();

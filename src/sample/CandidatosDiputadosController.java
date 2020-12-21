@@ -3,8 +3,10 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -16,28 +18,12 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CandidatosDiputadosController extends RegistroController{
-@FXML ComboBox candidato;
+    @FXML ComboBox candidato;
+
     public void datos(){
         listaCandidatos("Alcalde",PartidoPolitico,candidato);
     }
-    public void votar(){
 
-        generarFormulario("Votacion diputados","CandidatosDiputados");
-    }
-
-    //funcion para generar la ventana de seleccion de candidatos a presidentes
-    public void generarSelecPresidentes() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("CandidatosPresidentes.fxml"));
-            Stage regiStage = new Stage();
-            regiStage.setTitle("Candidaturas a la Presidencia");
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<String> Partidos=new ArrayList<>();
@@ -46,5 +32,23 @@ public class CandidatosDiputadosController extends RegistroController{
         ObservableList<String> l= FXCollections.observableArrayList(Partidos);
         PartidoPolitico.setItems(l);
         datos();
+    }
+
+
+    public void votarPresidentes(Event event){
+        votacionPresidentes(event);
+    }
+
+    public void votacionPresidentes(Event event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("CandidatosPresidentes.fxml"));
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 }

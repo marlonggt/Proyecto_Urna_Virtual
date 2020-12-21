@@ -1,6 +1,8 @@
 package sample;
 
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -8,13 +10,13 @@ import javafx.stage.Stage;
 public class MenuAdminController {
 
     //funcion para generar la ventana de registro de candidatos
-    public void generarRegistro(){
+    public void generarRegistro(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
-            Stage regiStage = new Stage();
-            regiStage.setTitle("Opciones del administrador");
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();
@@ -22,26 +24,39 @@ public class MenuAdminController {
     }
 
     //funcion para generar la ventana de registro de partidos politicos
-    public void registroPartidos(){
+    public void registroPartidos(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("InscripcionPartido.fxml"));
-            Stage regiStage = new Stage();
-            regiStage.setTitle("Opciones del administrador");
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();
         }
     }
 
-    public void VentanaPrincipal(){
+    public void ventanaPrincipal(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("LoginVotante.fxml"));
-            Stage regiStage = new Stage();
-            regiStage.setTitle("Urna Virtual 2020");
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void resultados(Event event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ResultadoVotacion.fxml"));
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();

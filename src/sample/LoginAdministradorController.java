@@ -52,7 +52,7 @@ public class LoginAdministradorController {
             mensaje.setHeaderText("Acceso Concedido");
             mensaje.setContentText(" Bienvenido "+ user.getText());
             mensaje.showAndWait();
-            generarRegistro(event);
+            generarMenuAdmin(event);
         }
     }
 
@@ -98,9 +98,9 @@ public class LoginAdministradorController {
             }
         }
 
-        public void generarRegistro(Event event){
+        public void generarMenuAdmin(Event event){
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
                 Scene registro = new Scene(root);
                 Stage regiStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 regiStage.setScene(registro);
