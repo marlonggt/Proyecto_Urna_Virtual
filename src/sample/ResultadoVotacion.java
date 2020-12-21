@@ -17,9 +17,11 @@ public class ResultadoVotacion {
         votos = new int[getCandidatos.size()];
 
         String candidatoSelec= candidato;
+        System.out.println("seleccionado "+candidatoSelec);
         for (int i = 0; i < votos.length;i++){
-            if(getCandidatos.get(i).equals(candidatoSelec))
-                votos[i] = votos[i]+1;
+            if (getCandidatos.get(i).equals(candidatoSelec)) {
+                votos[i]++;
+            }
         }
 
     }
