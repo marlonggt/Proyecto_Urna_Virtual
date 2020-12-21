@@ -11,16 +11,6 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="102.0" layoutY="212.0" text="Partido Politico">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="102.0" layoutY="288.0" text="Candidato">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
       <AnchorPane layoutX="-3.0" layoutY="-4.0" prefHeight="122.0" prefWidth="714.0" style="-fx-background-color: #003d66;">
          <children>
             <Label layoutX="113.0" layoutY="44.0" prefHeight="34.0" prefWidth="487.0" text="Seleccion de Candidatos a Alcaldes" textFill="WHITE">
@@ -30,7 +20,11 @@
             </Label>
          </children>
       </AnchorPane>
-      <ComboBox fx:id="PartidoPolitico" layoutX="292.0" layoutY="213.0" onAction="#datos" prefHeight="25.0" prefWidth="296.0" promptText="Seleccione un partido politico" />
-      <ComboBox fx:id="candidato" layoutX="292.0" layoutY="289.0" prefHeight="25.0" prefWidth="296.0" promptText="Seleccione un candidato" />
+      <TableView fx:id="lista" layoutX="57.0" layoutY="150.0" prefHeight="226.0" prefWidth="594.0">
+        <columns>
+          <TableColumn fx:id="candidato" prefWidth="298.0" text="Candidato" />
+          <TableColumn fx:id="partido" minWidth="0.0" prefWidth="295.0" text="Partido" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

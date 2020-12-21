@@ -24,12 +24,11 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 
-public class LoginVotanteController implements Initializable {
+public class LoginVotanteController extends RegistroController {
 
     //atributos de la clase
     @FXML private ImageView logoImage;
     @FXML private Hyperlink adminLink;
-    @FXML private TextField identidad;
     @FXML private Button aceptar;
 
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -38,7 +37,7 @@ public class LoginVotanteController implements Initializable {
     }
 
     public void accion2(){
-        archivos("Votantes");
+       archivos("Votantes");
         char digitos[]=identidad.getText().toCharArray();
         int n = digitos.length;
         System.out.println(n);
@@ -92,19 +91,8 @@ public class LoginVotanteController implements Initializable {
         return r;
     }
 
-    //funcion para la creacion de archivos de texto
-    public void archivos(String texto){
-        File archivo=new File(texto);
-        try{
-            boolean a=archivo.createNewFile();
-            if (archivo.exists()){
-                System.out.println("Listo");
-            }
-        }
-        catch (IOException e){
-            System.out.println("Error: "+e);
-        }
-    }
+
+
 
     //funcion para generar la ventana de registro de candidatos
     public void generarRegistro(){
