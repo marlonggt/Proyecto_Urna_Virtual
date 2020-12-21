@@ -2,9 +2,11 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -257,12 +259,14 @@ public class RegistroController implements Initializable {
 
        return informacion;
     }
+
     //Funcion que busca y agrega los datos segun el partido seleccionado y segun su ubicacion
     public void listaCandidatos(String tipoCandidatura,ComboBox PartidoPolitico,ComboBox candidato){
         String DM=lugar();
         String l[]=DM.split("-");
         listado(PartidoPolitico,l[0],l[1],candidato);
     }
+
     //Cambiar de formulario
     public void generarFormulario(String texto,String nombre){
         String formulario=nombre+".fxml";
@@ -272,6 +276,19 @@ public class RegistroController implements Initializable {
             regiStage.setTitle(texto);
             regiStage.setScene(new Scene(root));
             regiStage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void volverAtras(Event event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();

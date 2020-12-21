@@ -1,5 +1,12 @@
 package sample;
 
+import javafx.event.Event;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.util.ArrayList;
 
 public class ResultadoVotacion {
@@ -17,9 +24,11 @@ public class ResultadoVotacion {
         votos = new int[getCandidatos.size()];
 
         String candidatoSelec= candidato;
+        System.out.println("seleccionado "+candidatoSelec);
         for (int i = 0; i < votos.length;i++){
-            if(getCandidatos.get(i).equals(candidatoSelec))
-                votos[i] = votos[i]+1;
+            if (getCandidatos.get(i).equals(candidatoSelec)) {
+                votos[i]++;
+            }
         }
 
     }
@@ -37,13 +46,11 @@ public class ResultadoVotacion {
 
             } else{
                 if (votos[i] == masVotos)
-                    resultado = "empate";
+                    resultado = "Empate";
             }
 
         }
 
         return resultado;
     }
-
-
 }
