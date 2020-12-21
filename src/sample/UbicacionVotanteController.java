@@ -36,8 +36,8 @@ public class UbicacionVotanteController extends RegistroController {
     }
 
     public void votar(Event event){
-        //ubicacion();
-        //generarFormulario("Alcaldes","CandidatosAlcaldes");
+        ubicacion();
+
         votacionAlcaldes(event);
     }
 
