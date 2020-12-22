@@ -93,7 +93,7 @@ public class LoginVotanteController extends RegistroController {
         return r;
     }
 
-    //funcion para generar la ventana de registro de candidatos
+    //funcion para generar la ventana de Login Administrador
     public void generarAdminLogin(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("LoginAdministrador.fxml"));
@@ -121,4 +121,3 @@ public class LoginVotanteController extends RegistroController {
         }
     }
 }
-

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="668.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultadoVotacion">
+<AnchorPane prefHeight="668.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultadoVotacion">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="100.0" prefWidth="923.0" style="-fx-background-color: #003d66;">
          <children>
@@ -43,5 +41,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <Button layoutX="449.0" layoutY="613.0" mnemonicParsing="false" onAction="#volverAtras" prefHeight="31.0" prefWidth="64.0" style="-fx-background-color: #003d66;" text="Atras" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

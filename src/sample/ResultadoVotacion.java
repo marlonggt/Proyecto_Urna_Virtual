@@ -46,7 +46,6 @@ public class ResultadoVotacion implements Initializable {
                 votos[i]++;
             }
         }
-
     }
 
     //Elige al ganador
@@ -54,19 +53,15 @@ public class ResultadoVotacion implements Initializable {
         int masVotos = votos[0];
         String resultado = getCandidatos.get(0);
 
-
         for (int i = 1; i < getCandidatos.size(); i++){
             if(votos[i] > masVotos){
                 masVotos = votos[i];
                 resultado = getCandidatos.get(i);
-
             } else{
                 if (votos[i] == masVotos)
                     resultado = "Empate";
             }
-
         }
-
         return resultado;
     }
 
@@ -83,31 +78,45 @@ public class ResultadoVotacion implements Initializable {
         }
         return linea;
     }
-public void tabla(String documento){
-    list.clear();
-    String u=lugar();
-    String b[]=u.split("-");
-    File archivo=new File(documento);
-    try {
-        Scanner entrada=new Scanner(archivo);
-        while (entrada.hasNextLine()){
-            String linea=entrada.nextLine();
-            String info[]=linea.split("-");
-            if(info[2].equals(b[0])&&info[3].equals(b[1])){
-                getCandidatos.add(info[1]);
-                list.addAll(new DatosColumna(info[1],info[0]));
-            }
 
+    public void tabla(String documento){
+        list.clear();
+        String u=lugar();
+        String b[]=u.split("-");
+        File archivo=new File(documento);
+        try {
+            Scanner entrada=new Scanner(archivo);
+            while (entrada.hasNextLine()){
+                String linea=entrada.nextLine();
+                String info[]=linea.split("-");
+                if(info[2].equals(b[0])&&info[3].equals(b[1])){
+                   getCandidatos.add(info[1]);
+                   list.addAll(new DatosColumna(info[1],info[0]));
+            }
         }
     } catch (FileNotFoundException e) {
         e.printStackTrace();
     }
-    lista.setItems(list);
-    candidato.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("candidato"));
-    partido.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("partido"));
+        lista.setItems(list);
+        candidato.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("candidato"));
+        partido.setCellValueFactory(new PropertyValueFactory<DatosColumna,String>("partido"));
 }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void volverAtras(Event event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
+            Scene localidad = new Scene(root);
+            Stage locaStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            locaStage.setScene(localidad);
+            locaStage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 }
