@@ -172,10 +172,24 @@ public class RegistroController implements Initializable {
     }
 
     //Accion para el boton de mostrar en combobox
-    public void DatosCombobox(){
-    Mostrar(Departamento,Municipio);
-    }
+    public void DatosCombobox() throws FileNotFoundException {
+          MostrarPartidos();
+          Mostrar(Departamento,Municipio);
 
+    }
+    public void MostrarPartidos() throws FileNotFoundException {
+          Partidos.clear();
+        File datos=new File("Partido");
+            Scanner entrada=new Scanner(datos);
+            while(entrada.hasNextLine()){
+                String informacion=entrada.nextLine();
+                String partido[]=informacion.split("-");
+                Partidos.add(partido[0]);
+                ObservableList<String> listd= FXCollections.observableArrayList(Partidos);
+        PartidoPolitico.setItems(listd);
+
+            }
+    }
     //Almacenar datos de candidatos
     public void listado(ComboBox Partido,TextField nombre,ComboBox Departamento, ComboBox Municipio) {
         String documento;
@@ -242,22 +256,6 @@ public class RegistroController implements Initializable {
 
 
     //Funcion que busca y agrega los datos segun el partido seleccionado y segun su ubicacion
-
-
-    //Cambiar de formulario
-    public void generarFormulario(String texto,String nombre){
-        String formulario=nombre+".fxml";
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(formulario));
-            Stage regiStage = new Stage();
-            regiStage.setTitle(texto);
-            regiStage.setScene(new Scene(root));
-            regiStage.show();
-        } catch (Exception e){
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
 
     public void volverAtras(Event event){
         try {

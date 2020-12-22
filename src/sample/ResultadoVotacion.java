@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -106,7 +108,16 @@ public class ResultadoVotacion implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
+    public void votacion(String tipoVotacion) throws IOException {
+        String n=lista.getSelectionModel().getSelectedItem().getCandidato();
+        File archivo=new File(tipoVotacion);
+        if(!archivo.exists()){
+            archivo.createNewFile();
+        }
+        FileWriter agregar=new FileWriter(tipoVotacion,true);
+        agregar.write(n+"\n");
+        agregar.close();
+    }
     public void volverAtras(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));

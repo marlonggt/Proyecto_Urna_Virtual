@@ -6,6 +6,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,7 +18,8 @@ public class CandidatosPresidentesController extends ResultadoVotacion{
      }
 
     //funcion para regresar a la ventana principal
-    public void finalVotacion(Event event){
+    public void finalVotacion(Event event) throws IOException {
+        votacion("VotosPresidente");
         ventanaPrincipal(event);
     }
 
