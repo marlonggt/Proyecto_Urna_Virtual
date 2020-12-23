@@ -36,19 +36,23 @@ public class ResultadoVotacion implements Initializable {
     ArrayList <String> getCandidatos = new ArrayList();
     int votos[];
 
-    //ingresar el voto y sumarlo a contador
-    public void votar(String candidato){
-        getCandidatos.add("Marcos"); getCandidatos.add("Allan"); getCandidatos.add("Onan"); getCandidatos.add("Marlon");
-        votos = new int[getCandidatos.size()];
+  public void llenado(String doc) throws FileNotFoundException {
 
-        String candidatoSelec= candidato;
-        System.out.println("seleccionado "+candidatoSelec);
-        for (int i = 0; i < votos.length;i++){
-            if (getCandidatos.get(i).equals(candidatoSelec)) {
-                votos[i]++;
-            }
-        }
-    }
+      votos=new int [getCandidatos.size()];
+      File n=new File(doc);
+     Scanner entrada=new Scanner(n);
+      while (entrada.hasNextLine()){
+          int x=0;
+          String linea=entrada.nextLine();
+          System.out.println(linea);
+          String info[]=linea.split("-");
+          int num=Integer.parseInt(info[1]);
+          getCandidatos.add(info[0]);
+          votos[x]=num;
+          x++;
+          }
+      }
+
 
     //Elige al ganador
     public String elegirGanador(){
@@ -121,6 +125,19 @@ public class ResultadoVotacion implements Initializable {
 
     public void conteo() throws IOException {
 
+        String u=lugar();
+        String b[]=u.split("-");
+        File archivo=new File("CandidatoAlcalde");
+
+            Scanner entrada=new Scanner(archivo);
+            while (entrada.hasNextLine()){
+                String linea=entrada.nextLine();
+                String info[]=linea.split("-");
+                if(info[2].equals(b[0])&&info[3].equals(b[1])){
+                    getCandidatos.add(info[1]);
+                }
+            }
+
         for(int x=0;x<getCandidatos.size();x++){
             File buscar=new File("VotosAlcalde");
             Scanner linea=new Scanner(buscar);
@@ -134,17 +151,75 @@ public class ResultadoVotacion implements Initializable {
                 }
             }
             System.out.println(t+" votos "+ contador);
-            /*
-            FileWriter almacenar=new FileWriter("Alcalde",true);
-            String a=t+"-"+contador;
-            almacenar.write(a+"\n");
-            almacenar.close();
+            Archivos d=new Archivos(t,contador,"Alcaldes");
+        }
+        System.out.println("Listo");
 
-             */
+    }
+    public void conteo2() throws IOException {
+
+        String u=lugar();
+        String b[]=u.split("-");
+        File archivo=new File("CandidatoDiputado");
+
+        Scanner entrada=new Scanner(archivo);
+        while (entrada.hasNextLine()){
+            String linea=entrada.nextLine();
+            String info[]=linea.split("-");
+            if(info[2].equals(b[0])&&info[3].equals(b[1])){
+                getCandidatos.add(info[1]);
+            }
+        }
+
+        for(int x=0;x<getCandidatos.size();x++){
+            File buscar=new File("VotosDiputado");
+            Scanner linea=new Scanner(buscar);
+            String t= getCandidatos.get(x);
+            System.out.println("==========Buscando=========="+t);
+            int contador=0;
+            while(linea.hasNextLine()){
+                String nombre=linea.nextLine();
+                if(t.equals(nombre)){
+                    contador++;
+                }
+            }
+            System.out.println(t+" votos "+ contador);
+            Archivos d=new Archivos(t,contador,"Diputados");
         }
         System.out.println("Listo");
     }
+    public void conteo3() throws IOException {
 
+        String u=lugar();
+        String b[]=u.split("-");
+        File archivo=new File("CandidatoPresidente");
+
+        Scanner entrada=new Scanner(archivo);
+        while (entrada.hasNextLine()){
+            String linea=entrada.nextLine();
+            String info[]=linea.split("-");
+            if(info[2].equals(b[0])&&info[3].equals(b[1])){
+                getCandidatos.add(info[1]);
+            }
+        }
+
+        for(int x=0;x<getCandidatos.size();x++){
+            File buscar=new File("VotosPresidente");
+            Scanner linea=new Scanner(buscar);
+            String t= getCandidatos.get(x);
+            System.out.println("==========Buscando=========="+t);
+            int contador=0;
+            while(linea.hasNextLine()){
+                String nombre=linea.nextLine();
+                if(t.equals(nombre)){
+                    contador++;
+                }
+            }
+            System.out.println(t+" votos "+ contador);
+            Archivos d=new Archivos(t,contador,"Presidente");
+        }
+        System.out.println("Listo");
+    }
     public void volverAtras(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
@@ -157,4 +232,12 @@ public class ResultadoVotacion implements Initializable {
             e.getCause();
         }
     }
+    public void Final() throws IOException {
+      conteo();
+      llenado("Alcaldes");
+        System.out.println("==============");
+       System.out.println("Ganador "+ elegirGanador());
+    }
+   
+
 }

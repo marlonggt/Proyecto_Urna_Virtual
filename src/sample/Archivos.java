@@ -9,29 +9,17 @@ public class Archivos {
     int voto;
     String doc;
 
-    public Archivos(String doc, String nombre, int voto) throws IOException {
+    public Archivos(String nombre, int voto, String doc) throws IOException {
         this.nombre = nombre;
         this.voto = voto;
-        this.doc=doc;
+        this.doc = doc;
         archivo(doc);
-
+        FileWriter almacenar=new FileWriter(doc,true);
+        String a=nombre+"-"+voto;
+        almacenar.write(a+"\n");
+        almacenar.close();
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getVoto() {
-        return voto;
-    }
-
-    public void setVoto(int voto) {
-        this.voto = voto;
-    }
     public void archivo(String nombre) throws IOException {
         File votos=new File(nombre+".txt");
         if(!votos.exists()){
