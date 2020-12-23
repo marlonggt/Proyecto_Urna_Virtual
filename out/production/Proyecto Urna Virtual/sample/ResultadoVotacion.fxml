@@ -46,5 +46,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <Button layoutX="599.0" layoutY="616.0" mnemonicParsing="false" onAction="#conteo" text="Calcular" />
    </children>
 </AnchorPane>

@@ -118,6 +118,33 @@ public class ResultadoVotacion implements Initializable {
         agregar.write(n+"\n");
         agregar.close();
     }
+
+    public void conteo() throws IOException {
+
+        for(int x=0;x<getCandidatos.size();x++){
+            File buscar=new File("VotosAlcalde");
+            Scanner linea=new Scanner(buscar);
+            String t= getCandidatos.get(x);
+            System.out.println("==========Buscando=========="+t);
+            int contador=0;
+            while(linea.hasNextLine()){
+                String nombre=linea.nextLine();
+                if(t.equals(nombre)){
+                    contador++;
+                }
+            }
+            System.out.println(t+" votos "+ contador);
+            /*
+            FileWriter almacenar=new FileWriter("Alcalde",true);
+            String a=t+"-"+contador;
+            almacenar.write(a+"\n");
+            almacenar.close();
+
+             */
+        }
+        System.out.println("Listo");
+    }
+
     public void volverAtras(Event event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
